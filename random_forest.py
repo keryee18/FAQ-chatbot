@@ -69,7 +69,21 @@ def get_rf_response(user_input):
     # Retrieve matching response
     for intent in data["intents"]:
         if intent["tag"] == predicted_tag:
-            return random.choice(intent["responses"])
+            # Always choose a response first
+            selected_response_text = random.choice(intent["responses"]) if intent["responses"] else ""
+
+            response_parts = [selected_response_text]
+
+            # If a source URL exists, add it to the parts
+            if "source_url" in intent and intent["source_url"]:
+                response_parts.append(f"For more information, visit: {intent['source_url']}")
+
+            # Join the parts, only including non-empty ones
+            final_response = "\n".join(filter(None, response_parts))
+            if not final_response: # If even after combining, it's empty, provide a fallback
+                 return "I am unsure how to answer that."
+
+            return final_response
     return "I am unsure how to answer that."
 
 # 5. Live Chat Loop
