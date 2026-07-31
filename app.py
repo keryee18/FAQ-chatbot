@@ -3,14 +3,20 @@
 Run with: streamlit run app.py
 """
 import json
-import random
+import random 
+import pandas as pd
 from pathlib import Path
 
 import streamlit as st
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import accuracy_score
+from sklearn.metrics import (
+    accuracy_score,
+    precision_score,
+    recall_score,
+    f1_score
+)
 from sklearn.model_selection import train_test_split
 from sklearn.neural_network import MLPClassifier
 from sklearn.pipeline import Pipeline
@@ -64,15 +70,47 @@ def train_models():
 @st.cache_data
 def compare_models():
     """A repeatable held-out test for the presentation; final chat models use all data."""
+
     intents = load_intents()
     texts, labels = make_examples(intents)
+
     x_train, x_test, y_train, y_test = train_test_split(
-        texts, labels, test_size=0.25, random_state=42, stratify=labels
+        texts,
+        labels,
+        test_size=0.25,
+        random_state=42,
+        stratify=labels
     )
+
     scores = {}
+
     for name, model in build_models(texts, labels).items():
         model.fit(x_train, y_train)
-        scores[name] = accuracy_score(y_test, model.predict(x_test))
+
+        prediction = model.predict(x_test)
+
+        scores[name] = {
+            "Accuracy": accuracy_score(y_test, prediction),
+            "Precision": precision_score(
+                y_test,
+                prediction,
+                average="weighted",
+                zero_division=0
+            ),
+            "Recall": recall_score(
+                y_test,
+                prediction,
+                average="weighted",
+                zero_division=0
+            ),
+            "F1 Score": f1_score(
+                y_test,
+                prediction,
+                average="weighted",
+                zero_division=0
+            )
+        }
+
     return scores
 
 
@@ -96,23 +134,43 @@ st.caption("Ask about programmes, admissions, fees, campus, library, intakes and
 
 intents = load_intents()
 with st.sidebar:
-    st.header("Model comparison")
+    st.header("Model Comparison")
     st.write("Three required models are trained from the same FAQ patterns.")
+
     try:
         scores = compare_models()
+
+        df = pd.DataFrame(scores).T
+
         st.dataframe(
-            {"Model": list(scores), "Held-out accuracy": [f"{score:.0%}" for score in scores.values()]},
-            hide_index=True,
-            width="stretch",
+            df.style.format("{:.2%}"),
+            width="stretch"
         )
-        best_model = max(scores, key=scores.get)
-        st.success(f"Best on this split: {best_model}")
+
+        best_model = max(
+            scores,
+            key=lambda x: scores[x]["F1 Score"]
+        )
+
+        st.success(
+            f"Best Model: {best_model}"
+        )
+
     except ValueError:
         best_model = "Logistic Regression"
         st.info("Not enough examples per class to produce a stratified test split.")
-    selected_model = st.selectbox("Chat model", list(train_models()), index=list(train_models()).index(best_model))
-    st.caption("Small FAQ datasets can produce unstable test scores. Add more varied examples before making a final performance claim.")
-    if st.button("Clear chat"):
+
+    selected_model = st.selectbox(
+        "Chat Model",
+        list(train_models()),
+        index=list(train_models()).index(best_model)
+    )
+
+    st.caption(
+        "Evaluation is based on a held-out test dataset."
+    )
+
+    if st.button("Clear Chat"):
         st.session_state.messages = []
         st.rerun()
 
