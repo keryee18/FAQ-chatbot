@@ -12,14 +12,31 @@
     },
     {
       "tag": "programme_information",
-      "patterns": ["What programmes does TAR UMT offer?", "What courses are available at TAR UMT?", "Can I study Information Technology at TAR UMT?", "Does TAR UMT offer diploma programmes?", "What degree programmes can I take?", "Show me the list of programmes", "Is Software Engineering available?", "What can I study at TAR UMT?", "What courses can I take?", "What faculties are there in TAR UMT?", "Does TAR UMT offer Foundation courses?", "What majors are offered?"],
+      "patterns": ["What programme", "What programmes", "What course", "What courses", "What programme is available","What programmes does TAR UMT offer?", "What courses are available at TAR UMT?", 
+                    "Can I study Information Technology at TAR UMT?", "Show me the list of programmes", "Is Software Engineering available?", "What can I study at TAR UMT?", "What courses can I take?", 
+                    "What faculties are there in TAR UMT?", "Does TAR UMT offer Foundation courses?", "What majors are offered?", "List of courses in TAR UMT", "What fields of study are available?",
+                    "Show me all faculties","What degrees can I pursue?", "Does TAR UMT offer computer science?", "Is business course available in TAR UMT?", "Do you have engineering programmes?",
+                    "What study options do I have?", "What can I enrol in at TAR UMT?", "What are the academic faculties?", "Full list of TAR UMT courses", "Are there postgrad or undergrad programmes?", 
+                    "Do you offer accounting courses?", "What subjects or courses can I apply for?", "What kind of courses are there in TAR UMT?", "Tell me about TAR UMT academic offerings",
+                    "What specialisations do you have?", "Are creative arts programmes offered?", "Do you have mass communication courses?", "Can I study applied sciences at TAR UMT?", "Are there social science programmes?", 
+                    "What built environment courses are available?", "Does TAR UMT have graphic design courses?", "What kinds of degrees do you offer?", "Can I check the available fields of study?",
+                    "Show all available undergraduate programmes", "What options are available for new SPM graduates?", "Do you offer finance and banking courses?", "Is psychology available at TAR UMT?", 
+                    "Are there quantity surveying degrees?", "What computing programs are open for intake?", "Tell me all the faculties in TAR UMT", "What subjects can I major in?", "Which academic departments does TAR UMT have?",
+                    "What are the options for higher education in TAR UMT?"
+                ],
       "responses": ["TAR UMT offers Foundation, Diploma and Bachelor Degree programmes in areas including Computing and Information Technology, Accountancy and Business, Engineering, Applied Sciences, Built Environment, Communication and Creative Industries, and Social Science and Humanities."],
       "source_url": "https://www.tarc.edu.my/admissions/programmes/programme-offered-a-z/undergraduate-programme/"
     },
     {
       "tag": "diploma",
-      "patterns": ["Tell me about diploma programmes", "What diploma courses does TAR UMT have?", "What diploma programme does TAR UMT have?", "List of diploma courses in TAR UMT", "Can I apply for a diploma?", "What are the available diploma options?", "Diploma studies at TAR UMT"],
+      "patterns": ["Tell me about diploma programmes", "Tell me about diploma courses", "What diploma courses does TAR UMT have?", "What diploma programme does TAR UMT have?", "List of diploma courses in TAR UMT", "Can I apply for a diploma?", "What are the available diploma options?", "Diploma studies at TAR UMT"],
       "responses": ["TAR UMT offers Diploma programmes across fields including Accounting, Advertising, Banking and Finance, Computer Science, Information Technology, Counselling, Early Childhood Education, Event Management, Food Science, Graphic Design and Hotel Management."],
+      "source_url": "https://www.tarc.edu.my/admissions/programmes/programme-offered-a-z/undergraduate-programme/"
+    },
+    {
+      "tag": "degree",
+      "patterns": ["Tell me about degree programmes", "Tell me about degree courses", "Whats degree courses does TAR UMT have?", "What degree programme does TAR UMT have?", "List of degree courses in TAR UMT", "Can I apply for a degree?", "What are the available degree options?", "Degree studies at TAR UMT"],
+      "responses": ["TAR UMT offers Bachelor Degree programmes across fields including Software Engineering, Software Systems Development, Sport & Exercise Science, Data Science, Quantity Surveying, Psychology, Public Relations, Marketing, E-Marketing, Information Security, Finance, Economics."],
       "source_url": "https://www.tarc.edu.my/admissions/programmes/programme-offered-a-z/undergraduate-programme/"
     },
     {
@@ -69,6 +86,54 @@
       "patterns": ["Does TAR UMT offer scholarships?", "How can I apply for a scholarship?", "What scholarships are available?", "Am I eligible for a scholarship?", "Is there a merit scholarship?", "Can I get financial aid for my studies?", "Are there scholarships for diploma students?", "Where can I find scholarship information?"],
       "responses": ["TAR UMT offers financial aid such as Merit Scholarships, selected bursaries and sports scholarships. Eligibility, documents and deadlines differ by scheme, so refer to the Scholarships and Grants page for the latest details."],
       "source_url": "https://www.tarc.edu.my/dsa/financial-aid/scholarships-grants/"
+    },
+    {
+      "tag": "accommodation",
+      "patterns": ["Does TAR UMT have hostels?", "Where can I live near campus?", "Hostel fees and room types", "Off-campus accommodation options", "Is there student housing in Setapak?"],
+      "responses": ["TAR UMT offers on-campus hostel accommodation at the KL Main Campus with 24-hour security, and air-conditioned rooms. Off-campus housing options nearby (e.g., PV condominiums, Taman Bunga Raya, Teratai Residency) are also popular among students."],
+      "source_url": "https://www.tarc.edu.my/dsa/contentsub.jsp?cat_id=1210BF6A-BE89-49AC-B823-DC729888CB71&fmenuid=DCF6BB08-61CA-4FB4-9057-18913B3987C4"
+    },
+    {
+      "tag": "transportation",
+      "patterns": ["Does TAR UMT provide shuttle buses?", "How to get to TAR UMT by LRT?", "Shuttle bus schedule", "Which LRT station is nearest to TAR UMT?", "Is there a bus from Wangsa Maju LRT?"],
+      "responses": ["The nearest LRT station is Wangsa Maju (Kelana Jaya Line). TAR UMT operates free shuttle buses connecting the Wangsa Maju LRT station and selected student residential areas directly to the KL main campus."],
+      "source_url": "https://www.tarc.edu.my/dsa/a/transportation/bus-schedule/"
+    },
+    {
+      "tag": "ptptn_loan",
+      "patterns": ["How to apply for PTPTN at TAR UMT?", "Does TAR UMT accept PTPTN?", "PTPTN loan application steps", "When is the PTPTN deadline?", "PTPTN briefing and submission"],
+      "responses": ["Yes, eligible Malaysian students in Diploma and Degree programmes can apply for PTPTN. The Department of Student Affairs (DSA) conducts regular briefing sessions and assists with document verification."],
+      "source_url": "https://www.tarc.edu.my/dsa/financial-aid/ptptn/"
+    },
+    {
+      "tag": "student_club_societies",
+      "patterns": ["What student clubs are available?", "How do I join a society at TAR UMT?", "List of clubs and societies", "Co-curricular activities", "Student Union / Societies"],
+      "responses": ["TAR UMT has various student clubs and societies ranging from academic, cultural, interest-based, and performing arts to community service and sports organizations."],
+      "source_url": "https://www.tarc.edu.my/dsa/a/society-club/society-club/"
+    },
+    {
+      "tag": "international_students",
+      "patterns": ["Can international students apply?", "Visa requirements for TAR UMT", "EMGS application process", "English language requirements for foreign students", "International student fees", "Department of International Student Office", "DISO contact details", "How to apply as an international student"],
+      "responses": ["TAR UMT welcomes international applicants through the Department of International Student Office (DISO). International students need to meet academic qualifications, satisfy English language proficiency requirements, and obtain a Visa Approval Letter (VAL) and Student Pass via EMGS."],
+      "source_url": "https://www.tarc.edu.my/international/about-us/department-of-international-student-office-diso/"
+    },
+    {
+      "tag": "branch_campuses",
+      "patterns": ["Where are TAR UMT branch campuses located?", "Does TAR UMT have campuses in Penang or Perak?", "List of TAR UMT campuses", "Johor branch campus courses", "Sabah and Sarawak campuses"],
+      "responses": ["In addition to the KL Main Campus, TAR UMT has 5 branch campuses: Penang, Perak, Johor, Pahang, and Sabah."],
+      "source_url": "https://www.tarc.edu.my/contact-us/"
+    },
+    {
+      "tag": "credit_transfer",
+      "patterns": ["Can I transfer my credits?", "How to apply for credit exemption?", "Diploma to degree credit transfer", "Credit transfer requirements"],
+      "responses": ["Students progressing from a TAR UMT Diploma to a Bachelor Degree, or transferring from another recognized institution, can apply for credit transfer/exemption subject to faculty approval and course syllabus matching."],
+      "source_url": "https://www.tarc.edu.my/admissions/application/general-information-on-application/"
+    },
+    {
+      "tag": "contact_helpdesk",
+      "patterns": ["How can I contact TAR UMT hotline?", "Admissions phone number", "TAR UMT official email", "Office opening hours", "Who can I call for admission enquiries?"],
+      "responses": ["You can reach TAR UMT Admissions at 03-41450100 / 03-41450123 or email info@tarc.edu.my. Office hours are Monday to Friday, 8:30 AM to 5:30 PM."],
+      "source_url": "https://www.tarc.edu.my/admissions/contact-us/"
     }
   ]
 }
