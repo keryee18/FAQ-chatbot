@@ -22,19 +22,30 @@
                     "What built environment courses are available?", "Does TAR UMT have graphic design courses?", "What kinds of degrees do you offer?", "Can I check the available fields of study?",
                     "Show all available undergraduate programmes", "What options are available for new SPM graduates?", "Do you offer finance and banking courses?", "Is psychology available at TAR UMT?", 
                     "Are there quantity surveying degrees?", "What computing programs are open for intake?", "Tell me all the faculties in TAR UMT", "What subjects can I major in?", "Which academic departments does TAR UMT have?",
-                    "What are the options for higher education in TAR UMT?"
-                ],
+                    "What are the options for higher education in TAR UMT?"],
       "responses": ["TAR UMT offers Foundation, Diploma and Bachelor Degree programmes in areas including Computing and Information Technology, Accountancy and Business, Engineering, Applied Sciences, Built Environment, Communication and Creative Industries, and Social Science and Humanities."],
       "source_url": "https://www.tarc.edu.my/admissions/programmes/programme-offered-a-z/undergraduate-programme/"
     },
     {
-      "tag": "diploma",
+      "tag": "foundation_programmes",
+      "patterns": ["Tell me about foundation courses", "Does TAR UMT offer Foundation in Arts?", "Does TAR UMT offer Foundation in Science?", "Does TAR UMT offer Foundation in Business?", "Does TAR UMT offer Foundation in Computing?", "How long is the foundation programme?", "Pre-university foundation options",
+                    "Tell me about Foundation in Arts", "Tell me about Foundation in Business", "Tell me about Foundation in Computing", "Tell me about Foundation in Science", "Have what foundation course?", "Any foundation courses?", "Foundation programmes?", "Foundation", "Pre-university", "Pre-uni cources",
+                    "Foundation options", "Pre-univerisity options", "What to continue after foundation?", "What foundation courses are available?", "Does TARUMT have Foundation in Arts?", "Does TARUMT have Foundation in Business?", "Does TARUMT have Foundation in Computing?", "Does TARUMT have Foundation in Science?",
+                    "List of foundation courses", "pre-u", "foundation studies", "What is the duration of foundation?", "How long is the foundation programme?", "Is foundation a 1-year course?", "What is the programme outline of foundation in arts?", "What is the programme outline of foundation in business?",
+                    "What is the programme outline of foundation in computing?", "What is the programme outline of foundation in science?", "What does foundation in arts studies?", "What does foundation in business studies?", "What does foundation in computing studies?", "What does foundation in science studies?",
+                    "What is the course of foundation in arts?", "What is the course of foundation in business?", "What is the course of foundation in computing?", "What is the course of foundation in science?", "foundation in computer", "arts foundation", "business foundation", "computer foundation", "science foundation",
+                    "foundation arts", "foundation business", "foundation computing", "foundation science", "what foundation?", "what pre-u?", "what pre-uni?"],
+      "responses": ["TAR UMT offers 1-year Foundation programmes (Foundation in Arts, Business, Computing and Science) designed as a direct pre-university pathway into various Bachelor Degree programmes."],
+      "source_url": "https://www.tarc.edu.my/admissions/programmes/programme-offered-a-z/pre-university-programme/"
+    },
+    {
+      "tag": "diploma_programmes",
       "patterns": ["Tell me about diploma programmes", "Tell me about diploma courses", "What diploma courses does TAR UMT have?", "What diploma programme does TAR UMT have?", "List of diploma courses in TAR UMT", "Can I apply for a diploma?", "What are the available diploma options?", "Diploma studies at TAR UMT"],
       "responses": ["TAR UMT offers Diploma programmes across fields including Accounting, Advertising, Banking and Finance, Computer Science, Information Technology, Counselling, Early Childhood Education, Event Management, Food Science, Graphic Design and Hotel Management."],
       "source_url": "https://www.tarc.edu.my/admissions/programmes/programme-offered-a-z/undergraduate-programme/"
     },
     {
-      "tag": "degree",
+      "tag": "degree_programmes",
       "patterns": ["Tell me about degree programmes", "Tell me about degree courses", "Whats degree courses does TAR UMT have?", "What degree programme does TAR UMT have?", "List of degree courses in TAR UMT", "Can I apply for a degree?", "What are the available degree options?", "Degree studies at TAR UMT"],
       "responses": ["TAR UMT offers Bachelor Degree programmes across fields including Software Engineering, Software Systems Development, Sport & Exercise Science, Data Science, Quantity Surveying, Psychology, Public Relations, Marketing, E-Marketing, Information Security, Finance, Economics."],
       "source_url": "https://www.tarc.edu.my/admissions/programmes/programme-offered-a-z/undergraduate-programme/"
@@ -57,10 +68,28 @@
       "source_url": "https://www.tarc.edu.my/admissions/a/application-and-enrolment-status-enquiry/"
     },
     {
-      "tag": "fees",
-      "patterns": ["How much is the tuition?", "What are the fees?", "When do I pay my fees?", "Cost of computer science course", "How much does it cost to study at TAR UMT?", "What is the fee for a diploma?", "How much is a bachelor degree?", "Tell me about TAR UMT fees", "What is the total course fee?", "Are there additional charges?", "Fees"],
-      "responses": ["Programme fees vary by course and student category. Please use the latest Malaysian Student Fees Guide for the complete fee breakdown."],
+      "tag": "malaysian_fees",
+      "patterns": ["How much is the tuition?", "What are the fees?", "Cost of computer science course", "How much does it cost to study at TAR UMT?", "What is the fee for a diploma?", "How much is a bachelor degree?", "Tell me about TAR UMT fees", "What is the total course fee?", "Are there additional charges?", 
+                    "Fees", "tuition fee", "course fee", "fee structure", "how much for foundation", "how much for bachelor degree", "diploma tuition cost", "degree tuition cost", "estimated total fees", "per semester fee", "how much is one semester", "fee breakdown", "payment schedule", "how much is software engineering fee", "accounting course fee", 
+                    "business degree tuition", "How much to pay?", "is it expensive?", "how much", "how expensive", "registration fee cost", "application fee", "resource fee", "lab fee", "caution money deposit", "hostel fee cost", "accommodation fee","is studying at TAR UMT cheap", "affordable course fees", "malaysian student fees guide", "local student tuition fee",
+                    "how much is foundation in science fee", "foundation in arts tuition cost", "diploma in accounting fee", "bachelor of computer science total fee", "software engineering degree cost", "quantity surveying course fees", "psychology degree cost", "engineering degree tuition", "finance course fee breakdown", "mass communication tuition fee",
+                    "graphic design course cost", "how much is one year tuition", "semester 1 fee amount", "how much deposit for initial payment", "how much is caution deposit", "facilities and resource fee cost", "orientation fee price", "special administration fee", "award assessment fee", "dual award additional fees", "prihatin flexi payment plan", 
+                    "public bank tuition payment", "fpx online fee payment", "how much do i pay after spm", "total cost for 3 year degree", "total cost for 4 year degree", "total cost for 2 year diploma", "how much is lab fee per year", "examination and service fee", "status maintenance fee", "is tarumt cheaper than other private unis", 
+                    "affordable private university fees in malaysia", "cheapest degree course in tarumt", "how much is student insurance fee", "what is included in estimated total fees", "where to download malaysian student fee guide pdf", "what fees are payable each year"],
+      "responses": ["Estimated total course fees for Malaysian students vary by qualification level and faculty: Foundation (1 year) ~RM 9,900 – RM 10,200; Diploma (2–2.5 years) ~RM 18,900 – RM 21,800; Bachelor Degree (3–4 years) ~RM 36,300 – RM 45,100. Fees are billed on a per-semester basis and include tuition, registration, caution money, facilities, and lab fees. Flexible payment plans and JomPAY/FPX online payment methods are supported. Please consult the official Malaysian Student Fees Guide for your specific programme's cost structure."],
       "source_url": "https://www.tarc.edu.my/bursary/malaysian-student-fees-guide/"
+    },
+    {
+      "tag": "international_fees",
+      "patterns": ["How much are fees for international students?", "What is the cost for foreign students at TAR UMT?", "International student fee structure", "How much is tuition for international students?", "Fees for non-Malaysian students", "International student undergraduate fees guide",
+                    "How much does a degree cost for foreign students?", "Diploma fees for international students", "Foundation tuition cost for international students", "EMGS and immigration charges TAR UMT", "Visa processing fee for international students", "International student administration fee", 
+                    "Application processing fee for foreign students", "Medical insurance cost for international students", "Personal bond charges for international students", "Total estimated cost for foreign students", "How to pay tuition fees from overseas?", "Telegraphic transfer fee payment TAR UMT", 
+                    "International student payment schedule", "First payment upon acceptance for international students", "Second payment EMGS submission TAR UMT", "Annual student pass renewal cost", "Living cost in Malaysia for international students", "Hostel fees for international students",
+                    "Merit bursary for foreign students TAR UMT", "Caution money deposit for foreign students", "Registration fee for international students", "Special administration fee for foreign students", "Dual award additional fees for international students", "How much is the application processing fee for foreign applicants?",
+                    "Can foreign students pay fees in installments?", "Department of International Student Office fee inquiry", "DISO contact for tuition fees", "What fees are included in the international guide?", "How much is computer science for international students?", "Business degree fee for foreign students", 
+                    "Engineering program cost for international students", "Mass communication fees for foreign students", "Are lab and workshop fees included for foreign students?", "Foreign student cost per year", "Total 3-year degree cost for international students"],
+      "responses": ["Programme fees vary by course and student category. Please use the latest Malaysian Student Fees Guide for the complete fee breakdown."],
+      "source_url": "https://www.tarc.edu.my/intfees/international-student-fees-guide-for-year-2026-intakes/"
     },
     {
       "tag": "campus_location",
@@ -229,17 +258,17 @@
                   "How private are the counselling records in TAR UMT?", "Can counselling help me improve my self-esteem?"],
       "responses": ["Yes, free and confidential personal counselling and guidance services are available for all enrolled TAR UMT students through the Counselling and Guidance Unit at the Department of Student Affairs (DSA)."],
       "source_url": "https://www.tarc.edu.my/dsa/c/counselling-and-guidance-unit/counselling-and-guidance-unit/"
-  },
-  {
-    "tag": "academic calendar",
-    "patterns": ["When is the semester break?", "Where can I find the academic calendar?", "When do classes start for the next semester?", "When are the exam dates?", "What is the semester schedule?", "TARUMT semester start date", "Academic calendar 2026", "Academic schedule",
-                "When does the semester start?", "When does the semester end?", "Semester dates", "Semester schedule", "When is the next semester starting?", "When are the school holidays?", "When is study break?", "Mid-term break dates", "Semester break schedule", "When do classes resume?", 
-                "When is the examination week?", "When are final exams?", "Final exam schedule", "Exam timetable dates", "TARUMT semester duration", "How long is one semester at TARUMT?", "How many weeks in a semester?", "Where can I download the academic calendar PDF?", 
-                "Check semester start date", "Degree intake semester schedule", "Diploma semester start date", "When is the sembreak?", "Sembreak", "Holiday", "When is the orientation week?", "Freshmen orientation dates", "When is the orientation day?", "Orientation?", "Academic calendar 2027",
-                "Academic calendar", "Calendar", "When is the exam?", "When the final exams end?", "Next semester date", "school calendar", "uni calendar", "tarc calendar", "tarumt calendar", "when sem start", "when sem end", "when class start", "when class end",
-                "sem 1 start date", "sem 2 start date", "sem 3 start date", "may intake start date", "november intake start date", "january intake start date", "public holiday calendar tarumt", "exam period", "exam", "public holiday", "orientation date", "ori", "ori week", "ori day"],
-      "responses": ["You can view the detailed academic calendar, including semester start dates, examination periods, and scheduled holidays, on the official TAR UMT Academic Calendar portal."],
-      "source_url": "https://www.tarc.edu.my/admissions/new-student/academic-calendar/"
-  }
+    },
+    {
+      "tag": "academic calendar",
+      "patterns": ["When is the semester break?", "Where can I find the academic calendar?", "When do classes start for the next semester?", "When are the exam dates?", "What is the semester schedule?", "TARUMT semester start date", "Academic calendar 2026", "Academic schedule",
+                  "When does the semester start?", "When does the semester end?", "Semester dates", "Semester schedule", "When is the next semester starting?", "When are the school holidays?", "When is study break?", "Mid-term break dates", "Semester break schedule", "When do classes resume?", 
+                  "When is the examination week?", "When are final exams?", "Final exam schedule", "Exam timetable dates", "TARUMT semester duration", "How long is one semester at TARUMT?", "How many weeks in a semester?", "Where can I download the academic calendar PDF?", 
+                  "Check semester start date", "Degree intake semester schedule", "Diploma semester start date", "When is the sembreak?", "Sembreak", "Holiday", "When is the orientation week?", "Freshmen orientation dates", "When is the orientation day?", "Orientation?", "Academic calendar 2027",
+                  "Academic calendar", "Calendar", "When is the exam?", "When the final exams end?", "Next semester date", "school calendar", "uni calendar", "tarc calendar", "tarumt calendar", "when sem start", "when sem end", "when class start", "when class end",
+                  "sem 1 start date", "sem 2 start date", "sem 3 start date", "may intake start date", "november intake start date", "january intake start date", "public holiday calendar tarumt", "exam period", "exam", "public holiday", "orientation date", "ori", "ori week", "ori day"],
+        "responses": ["You can view the detailed academic calendar, including semester start dates, examination periods, and scheduled holidays, on the official TAR UMT Academic Calendar portal."],
+        "source_url": "https://www.tarc.edu.my/admissions/new-student/academic-calendar/"
+    }
   ]
 }
