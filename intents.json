@@ -40,6 +40,17 @@
       "source_url": "https://www.tarc.edu.my/admissions/programmes/programme-offered-a-z/undergraduate-programme/"
     },
     {
+      "tag": "postgraduate_programmes",
+      "patterns": ["Does TAR UMT offer Master's degrees?", "Can I study a PhD at TAR UMT?", "Tell me about postgraduate courses", "What Master's programmes are available?", "Doctorate degrees offered by TAR UMT", "Postgraduate entry requirements", "Master's degree options", "postgrad", "postgraduate", "masters degree", 
+                  "phd", "doctorate", "master studies", "postgrad courses", "postgrad study", "master programme list", "phd programme list", "what masters can i study", "does tarumt have phd", "does tarumt have masters", "is there any postgraduate course", "postgraduate studies in tarumt", "what phd courses are available",
+                  "masters by coursework", "masters by research", "phd by research", "doctor of philosophy", "doctor of business administration", "dba programme", "mba course tarumt", "master of computer science", "master of science tarumt", "master of business administration", "postgraduate options for graduates", 
+                  "can i do masters after degree", "postgrad requirements", "requirements for master degree", "entry requirements for phd", "how to apply for postgrad in tarumt", "postgraduate tuition fees", "how long is master degree in tarumt", "phd duration", "part time masters degree", "full time phd",
+                  "centre for postgraduate studies and research", "cpgsr tarumt", "postgraduate intake dates", "can i do research degree in tarumt", "higher education after degree", "further study after bachelor", "postgraduate prospectus", "master degree specialisations", "is phd offered here",
+                  "postgraduate application process", "master degree fields of study"],
+      "responses": ["TAR UMT offers postgraduate programmes including Master's by Research/Coursework and Doctorate (PhD) degrees across various disciplines such as Business, Computing, Engineering, and Applied Sciences."],
+      "source_url": "https://www.tarc.edu.my/admissions/programmes/programme-offered-a-z/postgraduate-programme/"
+    },
+    {
       "tag": "admission",
       "patterns": ["How do I apply?", "What are the admission requirements?", "When is the application deadline?", "How to enrol?", "How do I submit an application?", "Where can I apply online?"],
       "responses": ["You can apply online through TAR UMT's admissions portal. Check the current programme page for its intake dates, requirements and deadline."],
@@ -218,6 +229,17 @@
                   "How private are the counselling records in TAR UMT?", "Can counselling help me improve my self-esteem?"],
       "responses": ["Yes, free and confidential personal counselling and guidance services are available for all enrolled TAR UMT students through the Counselling and Guidance Unit at the Department of Student Affairs (DSA)."],
       "source_url": "https://www.tarc.edu.my/dsa/c/counselling-and-guidance-unit/counselling-and-guidance-unit/"
+  },
+  {
+    "tag": "academic calendar",
+    "patterns": ["When is the semester break?", "Where can I find the academic calendar?", "When do classes start for the next semester?", "When are the exam dates?", "What is the semester schedule?", "TARUMT semester start date", "Academic calendar 2026", "Academic schedule",
+                "When does the semester start?", "When does the semester end?", "Semester dates", "Semester schedule", "When is the next semester starting?", "When are the school holidays?", "When is study break?", "Mid-term break dates", "Semester break schedule", "When do classes resume?", 
+                "When is the examination week?", "When are final exams?", "Final exam schedule", "Exam timetable dates", "TARUMT semester duration", "How long is one semester at TARUMT?", "How many weeks in a semester?", "Where can I download the academic calendar PDF?", 
+                "Check semester start date", "Degree intake semester schedule", "Diploma semester start date", "When is the sembreak?", "Sembreak", "Holiday", "When is the orientation week?", "Freshmen orientation dates", "When is the orientation day?", "Orientation?", "Academic calendar 2027",
+                "Academic calendar", "Calendar", "When is the exam?", "When the final exams end?", "Next semester date", "school calendar", "uni calendar", "tarc calendar", "tarumt calendar", "when sem start", "when sem end", "when class start", "when class end",
+                "sem 1 start date", "sem 2 start date", "sem 3 start date", "may intake start date", "november intake start date", "january intake start date", "public holiday calendar tarumt", "exam period", "exam", "public holiday", "orientation date", "ori", "ori week", "ori day"],
+      "responses": ["You can view the detailed academic calendar, including semester start dates, examination periods, and scheduled holidays, on the official TAR UMT Academic Calendar portal."],
+      "source_url": "https://www.tarc.edu.my/admissions/new-student/academic-calendar/"
   }
   ]
 }
