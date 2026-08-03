@@ -2,12 +2,16 @@
   "intents": [
     {
       "tag": "greeting",
-      "patterns": ["Hi", "Hello", "Hey", "Is anyone there?", "Good day", "What's up", "Halo", "Hi there", "Good morning", "Good afternoon", "Good evening", "Yo", "Greetings", "Hello chatbot", "Anyone available?", "Are you online?", "Help please"],
+      "patterns": ["Hi", "Hello", "Hey", "Is anyone there?", "Good day", "What's up", "Halo", "Hi there", "Good morning", "Good afternoon", "Good evening", "Yo", "Greetings", "Hello chatbot", 
+                    "Anyone available?", "Are you online?", "Help please", "Hey there", "Hiya", "Morning", "Afternoon", "Evening", "Sup", "What's happening", "Hello there", "Hi chatbot", "Good to see you", 
+                    "How are you?", "Can you help me?", "Hiya", "Hello!", "Hey!", "Hi there!", "Hello there!"],
       "responses": ["Hello! Welcome to the TAR UMT FAQ Chatbot.", "Hi there! How can I help you today?", "Greetings! Feel free to ask me anything about TAR UMT."]
     },
     {
       "tag": "goodbye",
-      "patterns": ["Bye", "See you later", "Goodbye", "I am leaving", "Talk to you later", "Bye bye", "Cya", "Good night", "Got to go", "Have a nice day", "See ya", "I'm off", "Leaving now", "Catch you later"],
+      "patterns": ["Bye", "See you later", "Goodbye", "I am leaving", "Talk to you later", "Bye bye", "Cya", "Good night", "Got to go", "Have a nice day", "See ya", "I'm off", "Leaving now", 
+                    "Catch you later", "Farewell", "Take care", "Until next time", "See you soon", "Adios", "Later", "Peace out", "I gotta go", "I'm heading out", "Have a good one", "It was nice chatting", 
+                    "Until then", "Time to go", "Bye!", "Later!", "See ya!", "Thanks!", "Goodnight", "TTYL"],
       "responses": ["Goodbye! Have a great day ahead.", "See you later! Feel free to ask if you need more help.", "Bye! Take care."]
     },
     {
@@ -40,13 +44,20 @@
     },
     {
       "tag": "diploma_programmes",
-      "patterns": ["Tell me about diploma programmes", "Tell me about diploma courses", "What diploma courses does TAR UMT have?", "What diploma programme does TAR UMT have?", "List of diploma courses in TAR UMT", "Can I apply for a diploma?", "What are the available diploma options?", "Diploma studies at TAR UMT"],
+      "patterns": ["Tell me about diploma programmes", "Tell me about diploma courses", "What diploma courses does TAR UMT have?", "What diploma programme does TAR UMT have?", "List of diploma courses in TAR UMT", 
+                    "Can I apply for a diploma?", "What are the available diploma options?", "Diploma studies at TAR UMT", "Do you offer diploma programmes?", "What diploma courses are available?", "Show me the diploma courses", 
+                    "Any diploma courses?", "What can I study for a diploma?", "Which diplomas are offered?", "Diploma programmes at TAR UMT", "Diploma options in TAR UMT", "What are the diploma courses offered?", 
+                    "Tell me about diploma studies", "Is there a diploma in computer science?", "Is there a diploma in accounting?", "Do you have diploma in IT?", "Can I do a diploma at TAR UMT?", "What diploma subjects are available?"],
       "responses": ["TAR UMT offers Diploma programmes across fields including Accounting, Advertising, Banking and Finance, Computer Science, Information Technology, Counselling, Early Childhood Education, Event Management, Food Science, Graphic Design and Hotel Management."],
       "source_url": "https://www.tarc.edu.my/admissions/programmes/programme-offered-a-z/undergraduate-programme/"
     },
     {
       "tag": "degree_programmes",
-      "patterns": ["Tell me about degree programmes", "Tell me about degree courses", "Whats degree courses does TAR UMT have?", "What degree programme does TAR UMT have?", "List of degree courses in TAR UMT", "Can I apply for a degree?", "What are the available degree options?", "Degree studies at TAR UMT"],
+      "patterns": ["Tell me about degree programmes", "Tell me about degree courses", "Whats degree courses does TAR UMT have?", "What degree programme does TAR UMT have?", "List of degree courses in TAR UMT", 
+                    "Can I apply for a degree?", "What are the available degree options?", "Degree studies at TAR UMT", "Do you offer bachelor degree programmes?", "What degree courses are available?", 
+                    "Show me the degree programmes", "Any degree courses?", "What can I study for a degree?", "Which degrees are offered?", "Bachelor degree options in TAR UMT", "What undergraduate programmes are available?", 
+                    "Tell me about undergraduate courses", "Is there a degree in software engineering?", "Is there a degree in psychology?", "Do you have degree in business?", "Can I do a bachelor degree at TAR UMT?", 
+                    "What degree subjects are available?"],
       "responses": ["TAR UMT offers Bachelor Degree programmes across fields including Software Engineering, Software Systems Development, Sport & Exercise Science, Data Science, Quantity Surveying, Psychology, Public Relations, Marketing, E-Marketing, Information Security, Finance, Economics."],
       "source_url": "https://www.tarc.edu.my/admissions/programmes/programme-offered-a-z/undergraduate-programme/"
     },
@@ -63,7 +74,9 @@
     },
     {
       "tag": "admission",
-      "patterns": ["How do I apply?", "What are the admission requirements?", "When is the application deadline?", "How to enrol?", "How do I submit an application?", "Where can I apply online?"],
+      "patterns": ["How do I apply?", "What are the admission requirements?", "When is the application deadline?", "How to enrol?", "How do I submit an application?", "Where can I apply online?", "How can I apply for admission?", "How to register at TAR UMT?", "How do I enrol for a programme?", "What is the admission process?", 
+                    "How to apply for a course?", "Where do I submit my application?", "How can I get admission?", "How to join TAR UMT?", "How do I start my application?", "How to apply for intake?", "How do I apply for a degree?", "How do I apply for a diploma?", "How to submit my application form?", "What is the application procedure?", 
+                    "Can you tell me how to enrol?"],
       "responses": ["You can apply online through TAR UMT's admissions portal. Check the current programme page for its intake dates, requirements and deadline."],
       "source_url": "https://www.tarc.edu.my/admissions/a/application-and-enrolment-status-enquiry/"
     },
@@ -93,13 +106,16 @@
     },
     {
       "tag": "campus_location",
-      "patterns": ["Where is the campus?", "Where is TAR UMT?", "What is the campus address?", "How do I get to the campus?", "Address of TAR UMT"],
+      "patterns": ["Where is the campus?", "Where is TAR UMT?", "What is the campus address?", "How do I get to the campus?", "Address of TAR UMT", "Where is TAR UMT located?", "What is the location of TAR UMT?", "Where is the main campus?", "What is the TAR UMT address?", "How do I reach the campus?", 
+                    "Which area is TAR UMT in?", "Where is the KL campus?", "Where is the Setapak campus?", "How to go to TAR UMT?", "How to reach TAR UMT campus?", "Where is TAR UMT Kuala Lumpur?", "What campus is in Setapak?"],
       "responses": ["TAR UMT's Kuala Lumpur main campus is at Jalan Genting Kelang, Setapak, 53300 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur."],
       "source_url": "https://www.tarc.edu.my/contact-us/"
     },
     {
       "tag": "library_information",
-      "patterns": ["Tell me about the TAR UMT library", "What facilities does the library have?", "Can I borrow books from the library?", "Does the library have study rooms?", "How can I access library online resources?", "Where can I find past exam papers?", "Does TAR UMT have e-books?", "What services are available at the library?"],
+      "patterns": ["Tell me about the TAR UMT library", "What facilities does the library have?", "Can I borrow books from the library?", "Does the library have study rooms?", "How can I access library online resources?", "Where can I find past exam papers?", "Does TAR UMT have e-books?", 
+                    "What services are available at the library?", "Where is the library located?", "How to use the TAR UMT library?", "Is there a library at TAR UMT?", "Can I use the library?", "What can I do in the library?", "Does the library offer online resources?", "How to access e-books at TAR UMT?", 
+                    "Are there computers in the library?", "Can I borrow books from the main library?", "What is the library opening hours?", "Does the library have Wi-Fi?"],
       "responses": ["TAR UMT has a Main Library at the Kuala Lumpur Campus and branch libraries at five campuses. It provides print and online resources such as e-books, e-journals, databases and past examination papers. Facilities include Wi-Fi, computers, discussion rooms and study spaces."],
       "source_url": "https://library.tarc.edu.my/about-us"
     },
