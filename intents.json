@@ -107,7 +107,7 @@
     {
       "tag": "campus_location",
       "patterns": ["Where is the campus?", "Where is TAR UMT?", "What is the campus address?", "How do I get to the campus?", "Address of TAR UMT", "Where is TAR UMT located?", "What is the location of TAR UMT?", "Where is the main campus?", "What is the TAR UMT address?", "How do I reach the campus?", 
-                    "Which area is TAR UMT in?", "Where is the KL campus?", "Where is the Setapak campus?", "How to go to TAR UMT?", "How to reach TAR UMT campus?", "Where is TAR UMT Kuala Lumpur?", "What campus is in Setapak?"],
+                    "Which area is TAR UMT in?", "Where is the KL campus?", "Where is the Setapak campus?", "How to go to TAR UMT?", "How to reach TAR UMT campus?", "Where is TAR UMT Kuala Lumpur?", "What campus is in Setapak?", "campus", "location", "address", "where is it", "Setapak", "KL", "main campus"],
       "responses": ["TAR UMT's Kuala Lumpur main campus is at Jalan Genting Kelang, Setapak, 53300 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur."],
       "source_url": "https://www.tarc.edu.my/contact-us/"
     },
@@ -115,43 +115,54 @@
       "tag": "library_information",
       "patterns": ["Tell me about the TAR UMT library", "What facilities does the library have?", "Can I borrow books from the library?", "Does the library have study rooms?", "How can I access library online resources?", "Where can I find past exam papers?", "Does TAR UMT have e-books?", 
                     "What services are available at the library?", "Where is the library located?", "How to use the TAR UMT library?", "Is there a library at TAR UMT?", "Can I use the library?", "What can I do in the library?", "Does the library offer online resources?", "How to access e-books at TAR UMT?", 
-                    "Are there computers in the library?", "Can I borrow books from the main library?", "What is the library opening hours?", "Does the library have Wi-Fi?"],
+                    "Are there computers in the library?", "Can I borrow books from the main library?", "What is the library opening hours?", "Does the library have Wi-Fi?", "library", "books", "study room", "e-books", "resources", "borrow book", "library services"],
       "responses": ["TAR UMT has a Main Library at the Kuala Lumpur Campus and branch libraries at five campuses. It provides print and online resources such as e-books, e-journals, databases and past examination papers. Facilities include Wi-Fi, computers, discussion rooms and study spaces."],
       "source_url": "https://library.tarc.edu.my/about-us"
     },
     {
       "tag": "intake_dates",
-      "patterns": ["When are TAR UMT intakes?", "When can I start studying?", "What are the available intakes?", "Is there a May intake?", "When does the next semester begin?", "What month can I apply?", "Does TAR UMT have a January intake?", "Which intake is the main intake?"],
+      "patterns": ["When are TAR UMT intakes?", "When can I start studying?", "What are the available intakes?", "Is there a May intake?", "When does the next semester begin?", "What month can I apply?", "Does TAR UMT have a January intake?", "Which intake is the main intake?", "intake", "start date", 
+                    "next intake", "semester start", "when to study", "when can I join", "application month", "intake dates", "When is the next intake?", "When does the intake open?", "Do you have intakes every year?", "When is the semester intake?", "When can I register for intake?", "Any intake this month?", 
+                    "What is the intake schedule?", "Is there an August intake?", "Is there a September intake?", "When does intake start for new students?", "When do classes begin for the intake?", "What is the next intake date?", "Can I apply for the next intake?", "When is the application period for intake?"],
       "responses": ["TAR UMT has intakes at different times of the year, depending on the programme. Please check the current intake listing for your selected programme."],
       "source_url": "https://www.tarc.edu.my/admissions/programmes/programme-offered-a-z/undergraduate-programme/"
     },
     {
       "tag": "application_documents",
-      "patterns": ["What documents do I need to apply?", "What should I upload for my application?", "Do I need to submit my IC?", "What documents are required for admission?", "Which results do I upload?", "What do I need for the online application?", "Application document checklist", "What supporting documents are needed?"],
+      "patterns": ["What documents do I need to apply?", "What should I upload for my application?", "Do I need to submit my IC?", "What documents are required for admission?", "Which results do I upload?", "What do I need for the online application?", "Application document checklist", 
+                    "What supporting documents are needed?", "documents", "upload", "IC", "results", "required documents", "what to upload", "MyKad", "certificate", "SPM result", "Do I need my birth certificate?", "Do I need passport photo?", "Do I need transcript?", "Do I need my school leaving cert?", 
+                    "What ID should I upload?", "Do I need proof of payment?", "What certificates do I need?", "Should I upload SPM slip?", "Need to submit academic transcript?", "Do I need signature on documents?", "Any medical documents?", "What about passport for international students?", 
+                    "Do I need to upload my graduation certificate?"],
       "responses": ["Prepare your MyKad (front and back), academic results such as SPM, O Level, STPM, A Level or UEC, and any other documents requested for your programme. Upload clear colour scans or photographs of the originals."],
       "source_url": "https://www.tarc.edu.my/admissions/a/application-and-enrolment-status-enquiry/"
     },
     {
       "tag": "entry_requirements_general",
-      "patterns": ["What are the entry requirements?", "Can I enter with SPM?", "How many credits do I need for diploma?", "What qualification is needed for a degree?", "Can I apply for foundation?", "What grades are needed to enrol?", "What are the minimum requirements?", "Can I enter using UEC?"],
+      "patterns": ["What are the entry requirements?", "Can I enter with SPM?", "How many credits do I need for diploma?", "What qualification is needed for a degree?", "Can I apply for foundation?", "What grades are needed to enrol?", "What are the minimum requirements?", "Can I enter using UEC?", 
+                    "requirements", "entry requirements", "credits", "SPM result", "UEC", "qualification", "minimum grade", "subject requirements", "entry qualification", "Can I apply with STPM?", "Can I apply with A-Level?", "Can I use foundation to enter degree?", "Do I need English?", 
+                    "Can I enter with O-Level?", "Can I enter with UEC and credits?", "What subjects are needed?", "Are there specific subject prerequisites?", "What grades are acceptable?", "Do I need a certain CGPA?"],
       "responses": ["General entry requirements differ by qualification and programme. As a guide, Foundation commonly requires 5 SPM credits and Diploma commonly requires 3 SPM credits. Degree programmes have their own pre-university requirements. Always confirm the requirements on the individual programme page."],
       "source_url": "https://www.tarc.edu.my/admissions/programmes/programme-offered-a-z/undergraduate-programme/"
     },
     {
       "tag": "scholarship",
-      "patterns": ["Does TAR UMT offer scholarships?", "How can I apply for a scholarship?", "What scholarships are available?", "Am I eligible for a scholarship?", "Is there a merit scholarship?", "Can I get financial aid for my studies?", "Are there scholarships for diploma students?", "Where can I find scholarship information?"],
+      "patterns": ["Does TAR UMT offer scholarships?", "How can I apply for a scholarship?", "What scholarships are available?", "Am I eligible for a scholarship?", "Is there a merit scholarship?", "Can I get financial aid for my studies?", "Are there scholarships for diploma students?", "Where can I find scholarship information?", 
+                    "scholarship", "bursary", "financial aid", "merit", "grant", "funding", "aid", "sponsorship", "Any financial support?", "Any bursary?", "Can I get scholarship after admission?", "Is there aid for poor students?", "Can I get sponsorship?", "Are there sports scholarships?", "Can I apply for scholarship during first year?", 
+                    "How to check scholarship eligibility?", "Do scholarships cover hostel?", "Does TAR UMT give bursaries to local students?", "Any merit scholarship for top students?"],
       "responses": ["TAR UMT offers financial aid such as Merit Scholarships, selected bursaries and sports scholarships. Eligibility, documents and deadlines differ by scheme, so refer to the Scholarships and Grants page for the latest details."],
       "source_url": "https://www.tarc.edu.my/dsa/financial-aid/scholarships-grants/"
     },
     {
       "tag": "accommodation",
-      "patterns": ["Does TAR UMT have hostels?", "Where can I live near campus?", "Hostel fees and room types", "Off-campus accommodation options", "Is there student housing in Setapak?"],
+      "patterns": ["Does TAR UMT have hostels?", "Where can I live near campus?", "Hostel fees and room types", "Off-campus accommodation options", "Is there student housing in Setapak?", "hostel", "accommodation", "housing", "room", "place to stay", "residence", "stay", "near campus", "dorm", "Where do students stay?", "Can I stay in hostel?", 
+                    "How much is hostel room?", "Is hostel available for new students?", "Can I apply for hostel early?", "Is there room for couples?", "How to book hostel?", "Any apartment nearby?", "Can I share a room?", "Are there rooms for international students?"],
       "responses": ["TAR UMT offers on-campus hostel accommodation at the KL Main Campus with 24-hour security, and air-conditioned rooms. Off-campus housing options nearby (e.g., PV condominiums, Taman Bunga Raya, Teratai Residency) are also popular among students."],
       "source_url": "https://www.tarc.edu.my/dsa/contentsub.jsp?cat_id=1210BF6A-BE89-49AC-B823-DC729888CB71&fmenuid=DCF6BB08-61CA-4FB4-9057-18913B3987C4"
     },
     {
       "tag": "transportation",
-      "patterns": ["Does TAR UMT provide shuttle buses?", "How to get to TAR UMT by LRT?", "Shuttle bus schedule", "Which LRT station is nearest to TAR UMT?", "Is there a bus from Wangsa Maju LRT?"],
+      "patterns": ["Does TAR UMT provide shuttle buses?", "How to get to TAR UMT by LRT?", "Shuttle bus schedule", "Which LRT station is nearest to TAR UMT?", "Is there a bus from Wangsa Maju LRT?", "transport", "bus", "lrt", "shuttle", "route", "commute", "travel", "public transport", "transportation", "How do I go there by bus?", 
+                    "How do I get there from KL?", "Is there a shuttle from LRT?", "How long does it take to reach campus?", "How much is bus fare?", "Can I take Grab to campus?", "Is there parking?", "How can I commute daily?", "Can I cycle to campus?", "Is there a bus stop near campus?"],
       "responses": ["The nearest LRT station is Wangsa Maju (Kelana Jaya Line). TAR UMT operates free shuttle buses connecting the Wangsa Maju LRT station and selected student residential areas directly to the KL main campus."],
       "source_url": "https://www.tarc.edu.my/dsa/a/transportation/bus-schedule/"
     },
@@ -172,13 +183,18 @@
     },
     {
       "tag": "student_club_societies",
-      "patterns": ["What student clubs are available?", "How do I join a society at TAR UMT?", "List of clubs and societies", "Co-curricular activities", "Student Union / Societies"],
+      "patterns": ["What student clubs are available?", "How do I join a society at TAR UMT?", "List of clubs and societies", "Co-curricular activities", "Student Union / Societies", "club", "society", "activities", "union", "club list", "society list", 
+                    "join club", "student club", "What societies can I join?", "Any sports club?", "Any cultural club?", "How to know club schedules?", "Can I join more than one club?", "Any volunteer society?", "Any tech club?", "Are there religious societies?", 
+                    "Can I start a new club?", "What clubs are active?"],
       "responses": ["TAR UMT has various student clubs and societies ranging from academic, cultural, interest-based, and performing arts to community service and sports organizations."],
       "source_url": "https://www.tarc.edu.my/dsa/a/society-club/society-club/"
     },
     {
       "tag": "international_students",
-      "patterns": ["Can international students apply?", "Visa requirements for TAR UMT", "EMGS application process", "English language requirements for foreign students", "International student fees", "Department of International Student Office", "DISO contact details", "How to apply as an international student"],
+      "patterns": ["Can international students apply?", "Visa requirements for TAR UMT", "EMGS application process", "English language requirements for foreign students", "International student fees", "Department of International Student Office", "DISO contact details", 
+                    "How to apply as an international student", "international", "foreigner", "foreign student", "visa", "student pass", "EMGS", "international student office", "overseas", "foreign applicant", "Can foreigners apply?", "Do you accept international applicants?", 
+                    "How to get student visa?", "How do I apply for visa?", "Can I use passport instead of IC?", "What documents do I need as foreigner?", "How long does visa processing take?", "Do I need IELTS?", "Can I study without local sponsor?", "How to contact DISO?", 
+                    "Is there help for overseas students?", "What about accommodation for international students?"],
       "responses": ["TAR UMT welcomes international applicants through the Department of International Student Office (DISO). International students need to meet academic qualifications, satisfy English language proficiency requirements, and obtain a Visa Approval Letter (VAL) and Student Pass via EMGS."],
       "source_url": "https://www.tarc.edu.my/international/about-us/department-of-international-student-office-diso/"
     },
