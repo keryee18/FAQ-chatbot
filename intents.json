@@ -439,7 +439,8 @@
         "How do I claim insurance for an accident?",
         "Is there accident coverage for students?",
         "Where to submit medical claim forms?",
-        "How to claim student insurance from DSA?"
+        "How to claim student insurance from DSA?",
+        "What is the deadline to submit an insurance claim?"
       ],
       "responses": [
         "All registered TAR UMT students are covered under the Student's Insurance Scheme for personal accidents. To submit a claim, visit the Department of Student Affairs (DSA) with original medical bills, payment receipts, a police report (if applicable), and your student ID."
@@ -453,7 +454,12 @@
         "Are there canteens or food courts at TAR UMT?",
         "Is halal food available on campus?",
         "What food options are in TAR UMT KL campus?",
-        "Where is the main food court?"
+        "Where is the main food court?",
+        "beverages",
+  "where to buy food",
+  "where to get lunch",
+  "where to eat lunch",
+  "places to eat"
       ],
       "responses": [
         "TAR UMT KL Main Campus features multiple food courts and cafeterias offering a wide variety of affordable local Malay, Chinese, Indian, and vegetarian dishes, as well as halal-certified food options."
