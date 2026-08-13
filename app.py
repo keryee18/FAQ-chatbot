@@ -118,7 +118,7 @@ def answer(question, model_name, intents):
     model = train_models()[model_name]
     probabilities = model.predict_proba([question])[0]
     confidence = float(probabilities.max())
-    if confidence < 0.35:
+    if confidence < 0.25:
         return FALLBACK, confidence, None
     tag = model.classes_[probabilities.argmax()]
     intent = next(item for item in intents if item["tag"] == tag)
