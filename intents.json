@@ -274,12 +274,191 @@
       "tag": "vehicle_entry_pass",
       "patterns": ["How to apply for a vehicle entry pass?","How to get a car entry pass at TARUMT?","How to apply for motorcycle entry pass?", "Vehicle entry pass application","How do I apply for a parking sticker?","Where to apply for car pass?",
                     "How to apply for student parking pass?","VEP application process", "How much is the car entry pass?", "How much does a motorcycle entry pass cost?", "Car entry pass fee", "Is motorcycle parking pass free?",
-                   "Vehicle entry pass price","VEP balloting process", "How does car pass balloting work?", "When can I check VEP balloting results?" , "How to check balloting result for car pass?", "Where to collect vehicle entry pass?", "Where is the Department of Security?"
-],
-"responses": [
-  "Existing TAR UMT students can apply for a Vehicle Entry Pass (VEP) for one car or motorcycle via the intranet (www.tarc.edu.my). Car passes are allocated through computer balloting and cost RM 240 + SST per year (non-refundable), while motorcycle passes are free. Successful applicants can pay via Public Bank, JomPAY, or the Bursary counter, and collect their pass at the Department of Security (TA143, Arena). Selling, buying, or transferring entry passes to third parties is strictly prohibited. Students with a valid VEP enjoy free parking at designated open-space areas."
-],
-"source_url": "https://www.tarc.edu.my/dsa/a/vehicle-entry-pass/application-for-vehicle-entry-pass-car-and-motorcycle/"
+                   "Vehicle entry pass price","VEP balloting process", "How does car pass balloting work?", "When can I check VEP balloting results?" , "How to check balloting result for car pass?", "Where to collect vehicle entry pass?", "Where is the Department of Security?"],
+      "responses": ["Existing TAR UMT students can apply for a Vehicle Entry Pass (VEP) for one car or motorcycle via the intranet (www.tarc.edu.my). Car passes are allocated through computer balloting and cost RM 240 + SST per year (non-refundable), while motorcycle passes are free. Successful applicants can pay via Public Bank, JomPAY, or the Bursary counter, and collect their pass at the Department of Security (TA143, Arena). Selling, buying, or transferring entry passes to third parties is strictly prohibited. Students with a valid VEP enjoy free parking at designated open-space areas."],
+      "source_url": "https://www.tarc.edu.my/dsa/a/vehicle-entry-pass/application-for-vehicle-entry-pass-car-and-motorcycle/"
+    },
+    {
+      "tag": "student_card",
+      "patterns": [
+        "How to get student ID card?",
+        "Lost my student card, what to do?",
+        "How to replace student ID?",
+        "Is student ID required on campus?",
+        "Where to collect my student ID?",
+        "Can I use student ID for discounts?",
+        "How to replace a damaged student card?"
+      ],
+      "responses": [
+        "If you have lost or damaged your student ID card, please report it to the Department of Student Affairs (DSA) and follow the procedure for a replacement card. A replacement fee may apply."
+      ]
+    },
+    {
+      "tag": "graduation_convocation",
+      "patterns": [
+        "When is the graduation ceremony?",
+        "How to register for convocation?",
+        "How to get my degree certificate?",
+        "Graduation requirements",
+        "Where is the convocation held?",
+        "What is the gown rental fee?",
+        "Convocation guest tickets",
+        "Can I collect my scroll early?"
+      ],
+      "responses": [
+        "Convocation ceremonies are held periodically for graduates. Details regarding registration, gown rental, and guest invitations are updated on the official Graduation portal once your results are finalized."
+      ]
+    },
+    {
+      "tag": "add_drop_subject",
+      "patterns": [
+        "How to add a subject?",
+        "How to drop a course?",
+        "What is the add/drop deadline?",
+        "Can I change my elective?",
+        "How to register for a subject?",
+        "I want to change my timetable",
+        "What if I fail a subject?"
+      ],
+      "responses": [
+        "Subject registration and add/drop must be done within the stipulated dates at the beginning of each semester via the student portal. Please consult your faculty office or academic advisor for specific guidance on course changes."
+      ],
+      "source_url": "https://www.tarc.edu.my/admissions/application/general-information-on-application/"
+    },
+    {
+      "tag": "student_portal_help",
+      "patterns": [
+        "How to log in to student portal?",
+        "Forgot my portal password?",
+        "How to access iTARC?",
+        "Where to check my exam results online?",
+        "How to change my portal password?",
+        "Portal is down",
+        "How to view my timetable online?"
+      ],
+      "responses": [
+        "You can access the Student Intranet/Portal using your student ID and password. If you have forgotten your password or are facing technical issues, please contact the IT Service Desk or use the 'Forgot Password' link on the login page."
+      ],
+      "source_url": "https://web.tarc.edu.my/portal/login.jsp"
+    },
+    {
+      "tag": "lost_and_found",
+      "patterns": [
+        "I lost my bag on campus",
+        "Where is the lost and found office?",
+        "Found an item, where do I pass it?",
+        "Did anyone find my keys?",
+        "Lost property",
+        "Where to report lost items?"
+      ],
+      "responses": [
+        "If you have lost or found an item on campus, please report it to the Security Office located in the main campus area or the nearest administrative office. You can also find \"Lost and Found\" section in TAR UMT app."
+      ],
+      "source_url": "https://www.tarc.edu.my/dsa/contact-us/"
+    },
+    {
+      "tag": "campus_wifi",
+      "patterns": [
+        "How to connect to campus Wi-Fi?",
+        "What is the Wi-Fi password?",
+        "Wi-Fi is not working",
+        "How to register my laptop for Wi-Fi?",
+        "Is there free internet?",
+        "Where is the best Wi-Fi signal?"
+      ],
+      "responses": [
+        "Students can connect to the campus Wi-Fi using their official student email credentials. For configuration issues or connection problems, please visit the IT Department or check the connectivity guide on the student portal."
+      ]
+    },
+    {
+      "tag": "internship_support",
+      "patterns": [
+        "Does TAR UMT help with internships?",
+        "Where to find internship openings?",
+        "Internship placement assistance",
+        "Do I need to submit an internship report?",
+        "When should I start looking for internships?",
+        "Internship letter request"
+      ],
+      "responses": [
+        "The Department of Student Affairs (DSA) and individual faculties provide support for internship placements. Please check the student portal for job postings, career fairs, and internship application guidelines specific to your programme."
+      ],
+      "source_url": "https://www.tarc.edu.my/jobs/job/jobList.jsp"
+    },
+    {
+      "tag": "emergency_contact",
+      "patterns": [
+        "Emergency on campus",
+        "Who to call for medical emergency?",
+        "Campus security number",
+        "What to do in case of an accident?",
+        "Ambulance number for campus",
+        "Report an incident"
+      ],
+      "responses": [
+        "In case of an emergency, please contact the Campus Security Department immediately at the designated emergency hotline (available on your student card or notice boards). For life-threatening emergencies, please dial 999."
+      ],
+      "source_url": "https://www.tarc.edu.my/dsa/contact-us/"
+    },
+    {
+      "tag": "fee_payment_methods",
+      "patterns": [
+        "How do I pay my tuition fees?",
+        "What payment methods are available?",
+        "Can I pay tuition via JomPAY?",
+        "How to pay fees through Public Bank?",
+        "Can I pay fees at the Bursary counter?",
+        "Where is the Bursary office?",
+        "Can I use FPX or DuitNow to pay fees?"
+      ],
+      "responses": [
+        "Tuition fees can be paid online via Public Bank Internet Banking, JomPAY, FPX, or DuitNow. Cash payments are accepted at Public Bank branches, and debit/credit card payments can be made at the Bursary Counter on Level 2, Bangunan Tun Tan Siew Sin at the KL Campus."
+      ],
+      "source_url": "https://www.tarc.edu.my/bursary/guidelines-on-payment-of-fees/"
+    },
+    {
+      "tag": "exam_illness_appeal",
+      "patterns": [
+        "What if I am sick during final exam?",
+        "How to apply for Extenuating Mitigating Circumstances?",
+        "How to appeal for exam results?",
+        "I missed my examination due to medical reasons",
+        "How to submit EMC for exam?",
+        "Can I defer my examination?",
+        "What if I fail out and want to appeal?"
+      ],
+      "responses": [
+        "If you miss a final exam due to illness or unforeseen circumstances, you must submit an Extenuating Mitigating Circumstances (EMC) application via the Student Intranet within 48 hours with a valid medical certificate (MC). Result or continuation appeals can be submitted via the Department of Examinations and Credit Accumulation (DECA)."
+      ],
+      "source_url": "https://examination.tarc.edu.my/examination-services/faqs"
+    },
+    {
+      "tag": "student_insurance",
+      "patterns": [
+        "Does TAR UMT provide student insurance?",
+        "How do I claim insurance for an accident?",
+        "Is there accident coverage for students?",
+        "Where to submit medical claim forms?",
+        "How to claim student insurance from DSA?"
+      ],
+      "responses": [
+        "All registered TAR UMT students are covered under the Student's Insurance Scheme for personal accidents. To submit a claim, visit the Department of Student Affairs (DSA) with original medical bills, payment receipts, a police report (if applicable), and your student ID."
+      ],
+      "source_url": "https://www.tarc.edu.my/dsa/students-insurance-scheme/"
+    },
+    {
+      "tag": "campus_dining_food",
+      "patterns": [
+        "Where can I eat on campus?",
+        "Are there canteens or food courts at TAR UMT?",
+        "Is halal food available on campus?",
+        "What food options are in TAR UMT KL campus?",
+        "Where is the main food court?"
+      ],
+      "responses": [
+        "TAR UMT KL Main Campus features multiple food courts and cafeterias offering a wide variety of affordable local Malay, Chinese, Indian, and vegetarian dishes, as well as halal-certified food options."
+      ],
+      "source_url": "https://www.tarc.edu.my/dsa/food-and-beverage/"
     }
   ]
 }
