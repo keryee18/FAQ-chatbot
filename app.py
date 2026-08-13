@@ -52,7 +52,7 @@ def build_models(texts, labels):
         ]),
         "Neural Network": Pipeline([
             ("tfidf", TfidfVectorizer(ngram_range=(1, 2), stop_words="english")),
-            ("model", MLPClassifier(hidden_layer_sizes=(16,), alpha=0.05, max_iter=1000, early_stopping=True, random_state=42)),
+            ("model", MLPClassifier(hidden_layer_sizes=(64,32), max_iter=1000, early_stopping=False, random_state=42)),
         ]),
     }
 
@@ -118,7 +118,7 @@ def answer(question, model_name, intents):
     model = train_models()[model_name]
     probabilities = model.predict_proba([question])[0]
     confidence = float(probabilities.max())
-    if confidence < 0.25:
+    if confidence < 0.35:
         return FALLBACK, confidence, None
     tag = model.classes_[probabilities.argmax()]
     intent = next(item for item in intents if item["tag"] == tag)
