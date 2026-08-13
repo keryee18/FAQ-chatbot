@@ -312,6 +312,14 @@
                   "sem 1 start date", "sem 2 start date", "sem 3 start date", "may intake start date", "november intake start date", "january intake start date", "public holiday calendar tarumt", "exam period", "exam", "public holiday", "orientation date", "ori", "ori week", "ori day"],
         "responses": ["You can view the detailed academic calendar, including semester start dates, examination periods, and scheduled holidays, on the official TAR UMT Academic Calendar portal."],
         "source_url": "https://www.tarc.edu.my/admissions/new-student/academic-calendar/"
+    },
+    {
+        "tag": "student_dress_code",
+        "patterns": ["What is the dress code?", "What can I wear to campus?", "Is there a dress code at TARUMT?", "What is the dress code policy?", "Can I wear shorts to class?", "Are slippers allowed?", "Can I wear sandals?", "Are sleeveless shirts allowed?",
+                    "Can I wear a singlet?", "Is dyed hair allowed?", "Are ripped jeans allowed?","Can I wear crocs?", "Can I wear a cap in class?","Student dress code guidelines","TARUMT dress code","TARC dress code rules", "What to wear for lectures?", "Are there restrictions on clothing?",
+                    "Is smart casual required?","What is appropriate attire for class?",  "Dress code for library", "Dress code for exam hall",  "What should I wear on the first day?",  "Can girls wear short skirts?",  "Can guys wear shorts?",  "Attire rules",
+                    "Attire policy", "Clothing guidelines", "What is not allowed to wear?", "Dress code" , "Attire","Clothing rules","Proper attire","Improper attire", "What to wear", "Can wear shorts?", "Can wear slippers?", "Can wear skirt?",  "Dresscode" ],
+        "responses": [ "Students are expected to dress appropriately on campus. Guidelines include wearing collared shirts or T-shirts with sleeves (tucked in, except Hawaiian-style), along with full-length pants, non-torn jeans, or skirts. Shorts, torn attire, Japanese slippers, and revealing clothes (such as mini skirts, low necklines, bare-back tops, exposed midriffs, or spaghetti straps) are prohibited. Proper sports attire is allowed for games and co-curricular classes. Additionally, all students MUST wear their TAR UMT Student ID card at all times on campus."],
+        "source_url": "https://www.tarc.edu.my/dsa/a/student-dress-code/"
     }
-  ]
 }
