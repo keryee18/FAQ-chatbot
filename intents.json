@@ -15,7 +15,7 @@
       "responses": ["Goodbye! Have a great day ahead.", "See you later! Feel free to ask if you need more help.", "Bye! Take care."]
     },
     {
-      "tag": "programme_information",
+      "tag": "course",
       "patterns": ["What programme", "What programmes", "What course", "What courses", "What programme is available","What programmes does TAR UMT offer?", "What courses are available at TAR UMT?", 
                     "Can I study Information Technology at TAR UMT?", "Show me the list of programmes", "Is Software Engineering available?", "What can I study at TAR UMT?", "What courses can I take?", 
                     "What faculties are there in TAR UMT?", "Does TAR UMT offer Foundation courses?", "What majors are offered?", "List of courses in TAR UMT", "What fields of study are available?",
@@ -29,7 +29,7 @@
       "source_url": "https://www.tarc.edu.my/admissions/programmes/programme-offered-a-z/undergraduate-programme/"
     },
     {
-      "tag": "foundation_programmes",
+      "tag": "foundation",
       "patterns": ["Tell me about foundation courses", "Does TAR UMT offer Foundation in Arts?", "Does TAR UMT offer Foundation in Science?", "Does TAR UMT offer Foundation in Business?", "Does TAR UMT offer Foundation in Computing?", "How long is the foundation programme?", "Pre-university foundation options",
                     "Tell me about Foundation in Arts", "Tell me about Foundation in Business", "Tell me about Foundation in Computing", "Tell me about Foundation in Science", "Have what foundation course?", "Any foundation courses?", "Foundation programmes?", "Foundation", "Pre-university", "Pre-uni cources",
                     "Foundation options", "Pre-univerisity options", "What to continue after foundation?", "What foundation courses are available?", "Does TARUMT have Foundation in Arts?", "Does TARUMT have Foundation in Business?", "Does TARUMT have Foundation in Computing?", "Does TARUMT have Foundation in Science?",
@@ -38,7 +38,7 @@
       "source_url": "https://www.tarc.edu.my/admissions/programmes/programme-offered-a-z/pre-university-programme/"
     },
     {
-      "tag": "diploma_programmes",
+      "tag": "diploma",
       "patterns": ["Tell me about diploma programmes", "Tell me about diploma courses", "What diploma courses does TAR UMT have?", "What diploma programme does TAR UMT have?", "List of diploma courses in TAR UMT", 
                     "Can I apply for a diploma?", "What are the available diploma options?", "Diploma studies at TAR UMT", "Do you offer diploma programmes?", "What diploma courses are available?", "Show me the diploma courses", 
                     "Any diploma courses?", "What can I study for a diploma?", "Which diplomas are offered?", "Diploma programmes at TAR UMT", "Diploma options in TAR UMT", "What are the diploma courses offered?", 
@@ -47,7 +47,7 @@
       "source_url": "https://www.tarc.edu.my/admissions/programmes/programme-offered-a-z/undergraduate-programme/"
     },
     {
-      "tag": "degree_programmes",
+      "tag": "degree",
       "patterns": ["Tell me about degree programmes", "Tell me about degree courses", "Whats degree courses does TAR UMT have?", "What degree programme does TAR UMT have?", "List of degree courses in TAR UMT", 
                     "Can I apply for a degree?", "What are the available degree options?", "Degree studies at TAR UMT", "Do you offer bachelor degree programmes?", "What degree courses are available?", 
                     "Show me the degree programmes", "Any degree courses?", "What can I study for a degree?", "Which degrees are offered?", "Bachelor degree options in TAR UMT", "What undergraduate programmes are available?", 
@@ -57,7 +57,7 @@
       "source_url": "https://www.tarc.edu.my/admissions/programmes/programme-offered-a-z/undergraduate-programme/"
     },
     {
-      "tag": "postgraduate_programmes",
+      "tag": "postgraduate",
       "patterns": ["Does TAR UMT offer Master's degrees?", "Can I study a PhD at TAR UMT?", "Tell me about postgraduate courses", "What Master's programmes are available?", "Doctorate degrees offered by TAR UMT", "Postgraduate entry requirements", "Master's degree options", "postgrad", "postgraduate", "masters degree", 
                   "phd", "doctorate", "master studies", "postgrad courses", "postgrad study", "master programme list", "phd programme list", "what masters can i study", "does tarumt have phd", "does tarumt have masters", "is there any postgraduate course", "postgraduate studies in tarumt", "what phd courses are available",
                   "masters by coursework", "masters by research", "phd by research", "doctor of philosophy", "can i do research degree in tarumt", "higher education after degree", "further study after bachelor", "postgraduate prospectus", "master degree specialisations", "is phd offered here",
@@ -303,7 +303,20 @@
         "Where is the convocation held?",
         "What is the gown rental fee?",
         "Convocation guest tickets",
-        "Can I collect my scroll early?"
+        "Can I collect my scroll early?",
+        "convocation",
+        "graduation",
+        "convo",
+        "convo date",
+        "when is convo",
+        "when is my graduation",
+        "convocation session details",
+        "graduation date for degree",
+        "diploma convocation date",
+        "how to apply for convocation",
+        "convocation registration link",
+        "graduation gown rental",
+        "where to collect academic gown"
       ],
       "responses": [
         "Convocation ceremonies are held periodically for graduates. Details regarding registration, gown rental, and guest invitations are updated on the official Graduation portal once your results are finalized."
@@ -318,7 +331,24 @@
         "Can I change my elective?",
         "How to register for a subject?",
         "I want to change my timetable",
-        "What if I fail a subject?"
+        "What if I fail a subject?",
+        "add drop",
+        "add drop subject",
+        "how to add drop course",
+        "add drop period",
+        "when is add drop week",
+        "add subject deadline",
+        "drop subject deadline",
+        "how to drop a class",
+        "cannot register subject",
+        "subject registration issue",
+        "how to swap class group",
+        "how to change lecture group",
+        "how to change tutorial slot",
+        "timetable clash what to do",
+        "how to resolve timetable collision",
+        "can I switch elective course",
+        "how to change my major subject"
       ],
       "responses": [
         "Subject registration and add/drop must be done within the stipulated dates at the beginning of each semester via the student portal. Please consult your faculty office or academic advisor for specific guidance on course changes."
@@ -378,7 +408,20 @@
         "Internship placement assistance",
         "Do I need to submit an internship report?",
         "When should I start looking for internships?",
-        "Internship letter request"
+        "Internship letter request",
+        "internship",
+        "industrial training",
+        "internship support",
+        "practical training",
+        "internship placement",
+        "how to apply for internship",
+        "where to find internship job list",
+        "TAR UMT job portal for internship",
+        "internship cover letter request",
+        "how to request support letter for internship",
+        "internship briefing date",
+        "who is my internship coordinator",
+        "faculty internship advisor"
       ],
       "responses": [
         "The Department of Student Affairs (DSA) and individual faculties provide support for internship placements. Please check the student portal for job postings, career fairs, and internship application guidelines specific to your programme."
@@ -393,7 +436,22 @@
         "Campus security number",
         "What to do in case of an accident?",
         "Ambulance number for campus",
-        "Report an incident"
+        "Report an incident",
+        "emergency",
+        "emergency contact",
+        "security office number",
+        "urgent help",
+        "campus security hotline",
+        "who to call in emergency",
+        "medical emergency on campus",
+        "accident on campus who to call",
+        "fire on campus report",
+        "police hotline campus",
+        "security office location",
+        "where is campus security department",
+        "how to report an emergency",
+        "is there a 24/7 security hotline",
+        "who to call for ambulance"
       ],
       "responses": [
         "In case of an emergency, please contact the Campus Security Department immediately at the designated emergency hotline (available on your student card or notice boards). For life-threatening emergencies, please dial 999."
@@ -409,7 +467,19 @@
         "How to pay fees through Public Bank?",
         "Can I pay fees at the Bursary counter?",
         "Where is the Bursary office?",
-        "Can I use FPX or DuitNow to pay fees?"
+        "Can I use FPX or DuitNow to pay fees?",
+        "pay fees",
+        "fee payment",
+        "how to pay tuition",
+        "payment methods",
+        "bursary counter",
+        "where to pay fees",
+        "JomPAY code for TAR UMT",
+        "how to pay fees via JomPAY",
+        "Public Bank online payment for TAR UMT",
+        "can I pay tuition fee using credit card",
+        "can I pay fees with debit card",
+        "DuitNow QR payment for fees"
       ],
       "responses": [
         "Tuition fees can be paid online via Public Bank Internet Banking, JomPAY, FPX, or DuitNow. Cash payments are accepted at Public Bank branches, and debit/credit card payments can be made at the Bursary Counter on Level 2, Bangunan Tun Tan Siew Sin at the KL Campus."
@@ -425,7 +495,22 @@
         "I missed my examination due to medical reasons",
         "How to submit EMC for exam?",
         "Can I defer my examination?",
-        "What if I fail out and want to appeal?"
+        "What if I fail out and want to appeal?",
+        "EMC",
+        "exam appeal",
+        "missed exam",
+        "sick during exam",
+        "absent for final exam",
+        "medical certificate for exam",
+        "MC for final exam",
+        "how to apply EMC",
+        "where to submit EMC form",
+        "EMC submission deadline",
+        "what happens if I miss my exam",
+        "can I retake exam if I was sick",
+        "special examination request",
+        "how to appeal for remarking exam paper",
+        "exam result re-evaluation appeal"
       ],
       "responses": [
         "If you miss a final exam due to illness or unforeseen circumstances, you must submit an Extenuating Mitigating Circumstances (EMC) application via the Student Intranet within 48 hours with a valid medical certificate (MC). Result or continuation appeals can be submitted via the Department of Examinations and Credit Accumulation (DECA)."
@@ -440,7 +525,21 @@
         "Is there accident coverage for students?",
         "Where to submit medical claim forms?",
         "How to claim student insurance from DSA?",
-        "What is the deadline to submit an insurance claim?"
+        "What is the deadline to submit an insurance claim?",
+        "insurance",
+        "student insurance",
+        "medical claim",
+        "accident coverage",
+        "how to claim insurance",
+        "group personal accident insurance",
+        "GPA insurance TAR UMT",
+        "student insurance policy details",
+        "am I covered by student insurance",
+        "does TAR UMT insurance cover hospital bill",
+        "insurance coverage for injury on campus",
+        "accident claim procedure",
+        "where to get insurance claim form",
+        "DSA insurance claim counter"
       ],
       "responses": [
         "All registered TAR UMT students are covered under the Student's Insurance Scheme for personal accidents. To submit a claim, visit the Department of Student Affairs (DSA) with original medical bills, payment receipts, a police report (if applicable), and your student ID."
@@ -459,7 +558,20 @@
   "where to buy food",
   "where to get lunch",
   "where to eat lunch",
-  "places to eat"
+  "places to eat",
+  "food",
+        "canteen",
+        "food court",
+        "cafeteria",
+        "where to eat",
+        "breakfast options on campus",
+        "where to buy dinner near campus",
+        "food stalls in TAR UMT",
+        "canteen opening hours",
+        "is there vegetarian food on campus",
+        "where to get halal food at TAR UMT",
+        "cafes near TAR UMT campus",
+        "is Yum Yum cafeteria open"
       ],
       "responses": [
         "TAR UMT KL Main Campus features multiple food courts and cafeterias offering a wide variety of affordable local Malay, Chinese, Indian, and vegetarian dishes, as well as halal-certified food options."
