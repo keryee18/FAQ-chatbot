@@ -41,30 +41,27 @@ def make_examples(intents):
     return texts, labels
 
 
-def residual_block(inputs, units, dropout_rate, name):
-    """A two-layer residual block for numeric text features."""
-    shortcut = inputs
-    x = tf.keras.layers.Dense(units, activation="relu", name=f"{name}_dense_1")(inputs)
-    x = tf.keras.layers.Dropout(dropout_rate, name=f"{name}_dropout")(x)
-    x = tf.keras.layers.Dense(units, name=f"{name}_dense_2")(x)
-    x = tf.keras.layers.Add(name=f"{name}_add")([shortcut, x])
-    return tf.keras.layers.Activation("relu", name=f"{name}_relu")(x)
-
-
-def build_resnet34(input_size, class_count):
-    """Build a ResNet-34-style MLP: 1 + (16 residual blocks * 2) + 1 layers."""
+def build_mlp(input_size, class_count):
+    """Build a compact neural classifier for sparse TF-IDF text features."""
     inputs = tf.keras.Input(shape=(input_size,), name="tfidf_features")
-    x = tf.keras.layers.Dense(128, activation="relu", name="input_projection")(inputs)
-    x = tf.keras.layers.Dropout(0.3, name="input_dropout")(x)
-
-    # The ResNet-34 block layout is 3 + 4 + 6 + 3 = 16 blocks.
-    for block_number in range(1, 17):
-        x = residual_block(x, 128, 0.2, f"residual_block_{block_number}")
-
+    x = tf.keras.layers.Dense(
+        128,
+        activation="relu",
+        kernel_regularizer=tf.keras.regularizers.l2(1e-4),
+        name="hidden_layer_1",
+    )(inputs)
+    x = tf.keras.layers.Dropout(0.4, name="dropout_1")(x)
+    x = tf.keras.layers.Dense(
+        64,
+        activation="relu",
+        kernel_regularizer=tf.keras.regularizers.l2(1e-4),
+        name="hidden_layer_2",
+    )(x)
+    x = tf.keras.layers.Dropout(0.3, name="dropout_2")(x)
     outputs = tf.keras.layers.Dense(
         class_count, activation="softmax", name="intent_output"
     )(x)
-    model = tf.keras.Model(inputs, outputs, name="resnet34_intent_classifier")
+    model = tf.keras.Model(inputs, outputs, name="mlp_intent_classifier")
     model.compile(
         optimizer=tf.keras.optimizers.Adam(learning_rate=0.001),
         loss="categorical_crossentropy",
@@ -73,13 +70,18 @@ def build_resnet34(input_size, class_count):
     return model
 
 
-class ResNet34TextClassifier:
-    """A scikit-learn-compatible interface around the TensorFlow ResNet-34 model."""
+class MLPTextClassifier:
+    """A scikit-learn-compatible interface around a compact TensorFlow MLP."""
 
-    def __init__(self, epochs=40, batch_size=16):
+    def __init__(self, epochs=200, batch_size=32):
         self.epochs = epochs
         self.batch_size = batch_size
-        self.vectorizer = TfidfVectorizer(ngram_range=(1, 2), stop_words="english")
+        self.vectorizer = TfidfVectorizer(
+            ngram_range=(1, 2),
+            stop_words="english",
+            strip_accents="unicode",
+            sublinear_tf=True,
+        )
         self.label_encoder = LabelEncoder()
 
     def fit(self, texts, labels):
@@ -90,14 +92,38 @@ class ResNet34TextClassifier:
         encoded_labels = self.label_encoder.fit_transform(labels)
         self.classes_ = self.label_encoder.classes_
         target = tf.keras.utils.to_categorical(encoded_labels, len(self.classes_))
-
-        self.model = build_resnet34(features.shape[1], len(self.classes_))
-        self.model.fit(
+        x_train, x_validation, y_train, y_validation, label_train, _ = train_test_split(
             features,
             target,
+            encoded_labels,
+            test_size=0.15,
+            random_state=42,
+            stratify=encoded_labels,
+        )
+
+        label_counts = np.bincount(label_train, minlength=len(self.classes_))
+        class_weight = {
+            label: len(label_train) / (len(self.classes_) * count)
+            for label, count in enumerate(label_counts)
+        }
+
+        self.model = build_mlp(features.shape[1], len(self.classes_))
+        self.model.fit(
+            x_train,
+            y_train,
+            validation_data=(x_validation, y_validation),
             epochs=self.epochs,
             batch_size=self.batch_size,
             verbose=0,
+            class_weight=class_weight,
+            callbacks=[
+                tf.keras.callbacks.EarlyStopping(
+                    monitor="val_loss", patience=20, restore_best_weights=True
+                ),
+                tf.keras.callbacks.ReduceLROnPlateau(
+                    monitor="val_loss", factor=0.5, patience=7, min_lr=1e-5
+                ),
+            ],
         )
         return self
 
@@ -121,7 +147,7 @@ def build_models(texts, labels):
             ("tfidf", TfidfVectorizer(ngram_range=(1, 2), stop_words="english")),
             ("model", RandomForestClassifier(n_estimators=300, class_weight="balanced", random_state=42)),
         ]),
-        "ResNet-34 Neural Network": ResNet34TextClassifier(),
+        "Neural Network (MLP)": MLPTextClassifier(),
     }
 
 
@@ -190,7 +216,11 @@ def answer(question, model_name, intents):
         return FALLBACK, confidence, None
     tag = model.classes_[probabilities.argmax()]
     intent = next(item for item in intents if item["tag"] == tag)
-    text = random.choice(intent["responses"])
+    responses = intent.get("responses", [])
+    if responses:
+        text = random.choice(responses)
+    else:
+        text = "I found information for this topic, but a direct chatbot response has not been added yet."
     if intent.get("source_url"):
         text += f"\n\nMore information: {intent['source_url']}"
     return text, confidence, tag
