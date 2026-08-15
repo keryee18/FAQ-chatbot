@@ -16,16 +16,13 @@
     },
     {
       "tag": "course",
-      "patterns": ["I want to know about programme","What programme", "What programmes", "What course", "What courses", "What programme is available","What programmes does TAR UMT offer?", "What courses are available at TAR UMT?",
-                    "Can I study Information Technology at TAR UMT?", "Show me the list of programmes", "Is Software Engineering available?", "What can I study at TAR UMT?", "What courses can I take?",
+      "patterns": ["I want to know about programme","What programme", "What courses", "What programme is available","What programmes does TAR UMT offer?", 
+                    "Can I study Information Technology at TAR UMT?", "Show me the list of programmes", "Is Software Engineering available?", "What courses can I take?",
                     "What faculties are there in TAR UMT?", "Does TAR UMT offer Foundation courses?", "What majors are offered?", "List of courses in TAR UMT", "What fields of study are available?",
-                    "Show me all faculties","What degrees can I pursue?", "Does TAR UMT offer computer science?", "Is business course available in TAR UMT?", "Do you have engineering programmes?",
+                    "Does TAR UMT offer computer science?", "Is business course available in TAR UMT?", "Do you have engineering programmes?",
                     "What study options do I have?", "What can I enrol in at TAR UMT?","Do you have mass communication courses?", "Can I study applied sciences at TAR UMT?", "Are there social science programmes?",
                     "What built environment courses are available?", "Does TAR UMT have graphic design courses?", "What kinds of degrees do you offer?", "Can I check the available fields of study?",
-                    "Show all available undergraduate programmes", "What options are available for new SPM graduates?", "Do you offer finance and banking courses?", "Is psychology available at TAR UMT?",
-                    "Are there quantity surveying degrees?", "What computing programs are open for intake?", "Tell me all the faculties in TAR UMT", "What subjects can I major in?", "Which academic departments does TAR UMT have?",
-                    "What are the options for higher education in TAR UMT?", "Full list of TAR UMT courses", "Are there postgrad or undergrad programmes?",
-                    "Do you offer accounting courses?", "What subjects or courses can I apply for?", "What kind of courses are there in TAR UMT?", "Tell me about TAR UMT academic offerings",
+                    "Show all available undergraduate programmes","Are there postgrad or undergrad programmes?", "Do you offer accounting courses?", "Tell me about TAR UMT academic offerings",
                     "What specialisations do you have?", "Are creative arts programmes offered?", "I want to know about course"],
       "responses": ["TAR UMT offers Foundation, Diploma and Bachelor Degree programmes in areas including Computing and Information Technology, Accountancy and Business, Engineering, Applied Sciences, Built Environment, Communication and Creative Industries, and Social Science and Humanities."],
       "source_url": "https://www.tarc.edu.my/admissions/programmes/programme-offered-a-z/undergraduate-programme/"
@@ -101,11 +98,10 @@
       "tag": "international_fees",
       "patterns": ["How much are fees for international students?", "What is the cost for foreign students at TAR UMT?", "International student fee structure", "How much is tuition for international students?", "Fees for non-Malaysian students", "International student undergraduate fees guide",
                     "How much does a degree cost for foreign students?", "Diploma fees for international students", "Foundation tuition cost for international students", "EMGS and immigration charges TAR UMT", "Visa processing fee for international students", "International student administration fee",
-                    "Application processing fee for foreign students", "Medical insurance cost for international students", "Personal bond charges for international students", "Total estimated cost for foreign students", "How to pay tuition fees from overseas?", "Telegraphic transfer fee payment TAR UMT",
-                    "International student payment schedule", "First payment upon acceptance for international students", "Second payment EMGS submission TAR UMT", "Annual student pass renewal cost", "Living cost in Malaysia for international students", "Hostel fees for international students",
+                    "Application processing fee for foreign students", "Medical insurance cost for international students", "Personal bond charges for international students","Telegraphic transfer fee payment TAR UMT", "International student payment schedule", "First payment upon acceptance for international students", "Second payment EMGS submission TAR UMT",
                     "Merit bursary for foreign students TAR UMT", "Caution money deposit for foreign students", "Registration fee for international students", "Special administration fee for international students", "Dual award additional fees for international students", "How much is the application processing fee for foreign applicants?",
                     "Can foreign students pay fees in installments?", "Department of International Student Office fee inquiry", "DISO contact for tuition fees", "What fees are included in the international guide?", "How much is computer science for international students?", "Business degree fee for foreign students",
-                    "Engineering program cost for international students", "What is the tuition fee for an international diploma student?", "Do overseas applicants pay different course fees?", "Where can I view fees for non-Malaysian applicants?", "Are visa charges included in international student fees?", "What is the first fee payment for an international applicant?", "What does an overseas student need to pay before enrolment?", "Can international students pay TAR UMT fees from another country?", "How much should a foreign student budget for study fees?", "Are student-pass renewal fees charged every year?", "What is the fee guide for international applicants?", "Do international students have to pay a personal bond?", "What are the administrative charges for overseas students?", "Does an international foundation student pay different fees?"],
+                    "Engineering program cost for international students", "Do overseas applicants pay different course fees?", "Where can I view fees for non-Malaysian applicants?", "What are the administrative charges for overseas students?", "Does an international foundation student pay different fees?"],
       "responses": ["Estimated total course fees for international students vary by qualification level and faculty: Foundation (1 year) ~RM 26,000 - RM 26,600; Diploma (2-2.5 years) ~RM 43,700 - RM 49,200; Bachelor Degree (3-4 years) ~RM 73,000 - RM 88,000. Fees are inclusive of 6% SST and cover tuition, international student administrative fees, registration, orientation, caution money, facilities, and lab/workshop fees (excluding EMGS and visa/immigration charges). Payment methods include online transfers and bank drafts. Please consult the official International Student Fees Guide for Year 2026 Intakes for your specific programme's cost structure."],
       "source_url": "https://www.tarc.edu.my/intfees/international-student-fees-guide-for-year-2026-intakes/"
     },
@@ -287,9 +283,8 @@
                   "How much does counselling cost for TAR UMT students?", "How to book a psychological counselling session?", "Does TAR UMT have professional counsellors?", "I need emotional support who should I contact?",
                   "Can counsellors help with study stress?", "Can I get advice for mental wellness at school?", "Where to go if I am having a panic attack on campus?", "How to request individual counselling at DSA?", "Does TAR UMT conduct group counselling sessions?",
                   "Who can I reach out to for suicide prevention support?", "Can a counsellor help me adjust to campus life?", "What mental health resources are available at TAR UMT?", "Where is the DSA Counselling counter located?",
-                  "Can I schedule a counselling appointment online?", "How can international students access counselling?", "What services are offered by the Counselling Unit?", "Can I talk to a counsellor about academic burnout?", "Is there any student welfare mental health support?",
-                  "Who is the head of the Counselling Unit at TAR UMT?", "What to do if my friend needs mental health help?", "Does TAR UMT offer stress management sessions?", "Can I talk to a counsellor about loneliness?",
-                  "How private are the counselling records in TAR UMT?", "Can counselling help me improve my self-esteem?",                   "Can I get help for relationship or family issues at DSA?", "What are the operating hours of the Counselling Unit?", "Does TAR UMT offer career guidance counselling?", "How to cope with stress in TAR UMT?", "Where can I find peer support or counsellors on campus?",
+                  "Can I schedule a counselling appointment online?", "Does TAR UMT offer stress management sessions?", "Can I talk to a counsellor about loneliness?",
+                  "How private are the counselling records in TAR UMT?", "Can counselling help me improve my self-esteem?",
                   "Is there a emergency mental health helpline for students?", "Can I talk to a counsellor about personal issues?", "Do I need to pay for therapy at TAR UMT?", "How to handle depression while studying at TAR UMT?",
                   "Are TAR UMT counsellors certified?"],
       "responses": ["Yes, free and confidential personal counselling and guidance services are available for all enrolled TAR UMT students through the Counselling and Guidance Unit at the Department of Student Affairs (DSA)."],
@@ -352,28 +347,11 @@
     },
     {
       "tag": "lost_and_found",
-      "patterns": [
-        "I lost my bag on campus",
-        "Where is the lost and found office?",
-        "Found an item, where do I pass it?",
-        "Did anyone find my keys?",
-        "Lost property",
-        "Where to report lost items?",
-        "I left my umbrella in the lecture hall",
-  "Lost my laptop in the library, who to contact?",
-  "How do I report something I lost on campus?",
-  "Lost item inquiry contact number",
-  "I misplaced my wallet on campus",
-  "Where to surrender lost property?",
-  "I found someone's wallet on campus",
-  "Who do I give a lost phone to?",
-  "Where to hand in found keys?",
-  "I found a student card near the canteen",
-  "How do I claim my lost item?",
-  "What proof is needed to claim lost property?",
-  "How long does lost and found keep items?",
-  "Where do unclaimed items go?",
-  "Lost and found office operating hours"
+      "patterns": ["I lost my bag on campus", "Where is the lost and found office?", "Found an item, where do I pass it?", "Did anyone find my keys?", "Lost property",
+                  "Where to report lost items?", "I left my umbrella in the lecture hall", "Lost my laptop in the library, who to contact?", "How do I report something I lost on campus?", "Lost item inquiry contact number" ,"I misplaced my wallet on campus",
+                  "Where to surrender lost property?", "I found someone's wallet on campus", "Who do I give a lost phone to?", "Where to hand in found keys?",
+                  "I found a student card near the canteen", "How do I claim my lost item?", "What proof is needed to claim lost property?", "How long does lost and found keep items?",
+                  "Where do unclaimed items go?", "Lost and found office operating hours"
       ],
       "responses": [
         "If you have lost or found an item on campus, please report it to the Security Office located in the main campus area or the nearest administrative office. You can also find \"Lost and Found\" section in TAR UMT app."
@@ -394,9 +372,9 @@
     {
       "tag": "internship_support",
       "patterns": ["I want to know about intern","I want to know about internship","Does TAR UMT help with internships?","Where to find internship openings?","Internship placement assistance","Do I need to submit an internship report?",
-        "When should I start looking for internships?","Internship letter request","internship","industrial training","internship support","practical training","I want to know about industrail training",
-        "internship placement","how to apply for internship","where to find internship job list","TAR UMT job portal for internship","internship cover letter request","how to request support letter for internship",
-        "internship briefing date","who is my internship coordinator","faculty internship advisor"
+                  "When should I start looking for internships?","Internship letter request","internship","industrial training","internship support","practical training","I want to know about industrail training",
+                  "internship placement","how to apply for internship","where to find internship job list","TAR UMT job portal for internship","internship cover letter request","how to request support letter for internship",
+                  "internship briefing date","who is my internship coordinator","faculty internship advisor"
       ],
       "responses": [
         "The Department of Student Affairs (DSA) and individual faculties provide support for internship placements. Please check the student portal for job postings, career fairs, and internship application guidelines specific to your programme."
@@ -405,28 +383,10 @@
     },
     {
       "tag": "emergency_contact",
-      "patterns": [
-        "Emergency on campus",
-        "Who to call for medical emergency?",
-        "Campus security number",
-        "What to do in case of an accident?",
-        "Ambulance number for campus",
-        "Report an incident",
-        "emergency",
-        "emergency contact",
-        "security office number",
-        "urgent help",
-        "campus security hotline",
-        "who to call in emergency",
-        "medical emergency on campus",
-        "accident on campus who to call",
-        "fire on campus report",
-        "police hotline campus",
-        "security office location",
-        "where is campus security department",
-        "how to report an emergency",
-        "is there a 24/7 security hotline",
-        "who to call for ambulance"
+      "patterns": [ "Emergency on campus", "Who to call for medical emergency?", "Campus security number", "What to do in case of an accident?", "Ambulance number for campus",
+                    "Report an incident", "emergency", "EMERGENCY", "emergency contact", "security office number", "urgent help", "campus security hotline", "who to call in emergency", "medical emergency on campus",
+                    "accident on campus who to call",  "fire on campus report",  "police hotline campus", "security office location", "where is campus security department", "how to report an emergency",
+                    "is there a 24/7 security hotline", "who to call for ambulance"
       ],
       "responses": [
         "In case of an emergency, please contact the Campus Security Department immediately at the designated emergency hotline (available on your student card or notice boards). For life-threatening emergencies, please dial 999."
@@ -436,8 +396,8 @@
     {
       "tag": "payment_methods",
       "patterns": ["I want to know about payment methods","How do I pay my tuition fees?","What payment methods are available?","Can I pay tuition via JomPAY?","How to pay fees through Public Bank?",
-        "Can I pay fees at the Bursary counter?","Where is the Bursary office?","Can I use FPX or DuitNow to pay fees?","how to pay tuition","payment methods","bursary counter","where to pay fees",
-        "JomPAY code for TAR UMT","how to pay fees via JomPAY","Public Bank online payment for TAR UMT","can I pay tuition fee using credit card","can I pay fees with debit card","DuitNow QR payment for fees"],
+                  "Can I pay fees at the Bursary counter?","Where is the Bursary office?","Can I use FPX or DuitNow to pay fees?","how to pay tuition","payment methods","bursary counter","where to pay fees",
+                  "JomPAY code for TAR UMT","how to pay fees via JomPAY","Public Bank online payment for TAR UMT","can I pay tuition fee using credit card","can I pay fees with debit card","DuitNow QR payment for fees"],
       "responses": [
         "Tuition fees can be paid online via Public Bank Internet Banking, JomPAY, FPX, or DuitNow. Cash payments are accepted at Public Bank branches, and debit/credit card payments can be made at the Bursary Counter on Level 2, Bangunan Tun Tan Siew Sin at the KL Campus."
       ],
@@ -459,7 +419,9 @@
       "patterns": ["I want to know about insurance", "Does TAR UMT provide student insurance?","How do I claim insurance for an accident?", "Is there accident coverage for students?","Where to submit medical claim forms?",
                   "How to claim student insurance from DSA?","What is the deadline to submit an insurance claim?","insurance","student insurance","medical claim","accident coverage",
                   "how to claim insurance","group personal accident insurance","GPA insurance TAR UMT","student insurance policy details","am I covered by student insurance","does TAR UMT insurance cover hospital bill",
-                  "insurance coverage for injury on campus","accident claim procedure","where to get insurance claim form","DSA insurance claim counter"
+                  "insurance coverage for injury on campus","accident claim procedure","where to get insurance claim form","DSA insurance claim counter",  "What happens if I get into an accident while studying at TAR UMT?", "TAR UMT insurance coverage", "GPA insurance claim steps", "DSA medical reimbursement", "Accident insurance deadline",
+                  "Student claim form DSA", "Medical bill claim TARUMT", "Injury insurance policy", "Could you clarify the terms of the Group Personal Accident (GPA) insurance scheme?", "What is the officially mandated procedure for insurance claims at TAR UMT?",
+                  "Where is the Department of Student Affairs insurance counter located?", "Does student fee payment automatically include Personal Accident coverage?", "Where can I submit completed insurance forms at the KL Main Campus?"
       ],
       "responses": [
         "All registered TAR UMT students are covered under the Student's Insurance Scheme for personal accidents. To submit a claim, visit the Department of Student Affairs (DSA) with original medical bills, payment receipts, a police report (if applicable), and your student ID."
@@ -470,7 +432,11 @@
       "tag": "campus_dining_food",
       "patterns": ["Where can I eat on campus?","Are there canteens or food courts at TAR UMT?","Is halal food available on campus?","What food options are in TAR UMT KL campus?", "Where is the main food court?",
                     "beverages","where to buy food","where to get lunch","where to eat lunch","places to eat","food","canteen","food court","cafeteria","where to eat","breakfast options on campus","where to buy dinner near campus","food stalls in TAR UMT",
-                    "canteen opening hours","is there vegetarian food on campus","where to get halal food at TAR UMT","cafes near TAR UMT campus","is Yum Yum cafeteria open"],
+                    "canteen opening hours","is there vegetarian food on campus","where to get halal food at TAR UMT","cafes near TAR UMT campus","is Yum Yum cafeteria open", "Could you provide information regarding dining facilities at TAR UMT?",
+                    "What cafeteria and food court options are available for students?", "Is there a complete list of on-campus food stalls and their locations?",   "Could you direct me to the main food court at the KL campus?", "Any good spots to grab a bite on campus?",
+                    "Where do people usually get food around TAR UMT?", "Super hungry, what are my food options here?", "Where's the best place to eat at TAR UMT?", "Any quick snack spots between classes?", "Where can I grab a fast lunch?", "What's good for breakfast on campus today?",
+                   "TAR UMT food spots", "Campus food court location", "Canteen options TARUMT", "Veggie food TAR UMT", "On-campus dining locations"
+],
       "responses": [
         "TAR UMT KL Main Campus features multiple food courts and cafeterias offering a wide variety of affordable local Malay, Chinese, Indian, and vegetarian dishes, as well as halal-certified food options."
       ],
