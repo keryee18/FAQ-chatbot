@@ -19,16 +19,17 @@ from sklearn.metrics import (
     recall_score,
     f1_score
 )
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import StratifiedKFold, train_test_split
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import LabelEncoder
+from sklearn.pipeline import FeatureUnion
 
 DATA_FILE = Path(__file__).with_name("intents.json")
 FALLBACK = "I’m not confident I understand that question. Please try rephrasing it or ask about programmes, admissions, fees, the library, intakes, scholarships or campus location."
 
 
 @st.cache_data
-def load_intents():
+def load_intents(data_modified_ns):
     with DATA_FILE.open(encoding="utf-8") as file:
         return json.load(file)["intents"]
 
@@ -41,29 +42,29 @@ def make_examples(intents):
     return texts, labels
 
 
-def build_mlp(input_size, class_count):
+def build_mlp(input_size, class_count, hidden_units, dropout_rates, learning_rate, l2_strength):
     """Build a compact neural classifier for sparse TF-IDF text features."""
     inputs = tf.keras.Input(shape=(input_size,), name="tfidf_features")
     x = tf.keras.layers.Dense(
-        128,
+        hidden_units[0],
         activation="relu",
-        kernel_regularizer=tf.keras.regularizers.l2(1e-4),
+        kernel_regularizer=tf.keras.regularizers.l2(l2_strength),
         name="hidden_layer_1",
     )(inputs)
-    x = tf.keras.layers.Dropout(0.4, name="dropout_1")(x)
+    x = tf.keras.layers.Dropout(dropout_rates[0], name="dropout_1")(x)
     x = tf.keras.layers.Dense(
-        64,
+        hidden_units[1],
         activation="relu",
-        kernel_regularizer=tf.keras.regularizers.l2(1e-4),
+        kernel_regularizer=tf.keras.regularizers.l2(l2_strength),
         name="hidden_layer_2",
     )(x)
-    x = tf.keras.layers.Dropout(0.3, name="dropout_2")(x)
+    x = tf.keras.layers.Dropout(dropout_rates[1], name="dropout_2")(x)
     outputs = tf.keras.layers.Dense(
         class_count, activation="softmax", name="intent_output"
     )(x)
     model = tf.keras.Model(inputs, outputs, name="mlp_intent_classifier")
     model.compile(
-        optimizer=tf.keras.optimizers.Adam(learning_rate=0.001),
+        optimizer=tf.keras.optimizers.Adam(learning_rate=learning_rate),
         loss="categorical_crossentropy",
         metrics=["accuracy"],
     )
@@ -73,15 +74,40 @@ def build_mlp(input_size, class_count):
 class MLPTextClassifier:
     """A scikit-learn-compatible interface around a compact TensorFlow MLP."""
 
-    def __init__(self, epochs=200, batch_size=32):
+    def __init__(
+        self,
+        hidden_units=(128, 64),
+        dropout_rates=(0.2, 0.2),
+        learning_rate=0.0005,
+        l2_strength=1e-5,
+        epochs=200,
+        batch_size=32,
+        early_stopping_patience=20,
+        reduce_lr_patience=7,
+    ):
+        self.hidden_units = hidden_units
+        self.dropout_rates = dropout_rates
+        self.learning_rate = learning_rate
+        self.l2_strength = l2_strength
         self.epochs = epochs
         self.batch_size = batch_size
-        self.vectorizer = TfidfVectorizer(
-            ngram_range=(1, 2),
-            stop_words="english",
-            strip_accents="unicode",
-            sublinear_tf=True,
-        )
+        self.early_stopping_patience = early_stopping_patience
+        self.reduce_lr_patience = reduce_lr_patience
+        self.vectorizer = FeatureUnion([
+            ("word", TfidfVectorizer(
+                ngram_range=(1, 2),
+                stop_words="english",
+                strip_accents="unicode",
+                sublinear_tf=True,
+            )),
+            ("character", TfidfVectorizer(
+                analyzer="char_wb",
+                ngram_range=(3, 5),
+                min_df=2,
+                max_features=2000,
+                sublinear_tf=True,
+            )),
+        ])
         self.label_encoder = LabelEncoder()
 
     def fit(self, texts, labels):
@@ -107,7 +133,14 @@ class MLPTextClassifier:
             for label, count in enumerate(label_counts)
         }
 
-        self.model = build_mlp(features.shape[1], len(self.classes_))
+        self.model = build_mlp(
+            features.shape[1],
+            len(self.classes_),
+            self.hidden_units,
+            self.dropout_rates,
+            self.learning_rate,
+            self.l2_strength,
+        )
         self.model.fit(
             x_train,
             y_train,
@@ -118,10 +151,15 @@ class MLPTextClassifier:
             class_weight=class_weight,
             callbacks=[
                 tf.keras.callbacks.EarlyStopping(
-                    monitor="val_loss", patience=20, restore_best_weights=True
+                    monitor="val_loss",
+                    patience=self.early_stopping_patience,
+                    restore_best_weights=True,
                 ),
                 tf.keras.callbacks.ReduceLROnPlateau(
-                    monitor="val_loss", factor=0.5, patience=7, min_lr=1e-5
+                    monitor="val_loss",
+                    factor=0.5,
+                    patience=self.reduce_lr_patience,
+                    min_lr=1e-5,
                 ),
             ],
         )
@@ -153,7 +191,7 @@ def build_models(texts, labels):
 
 @st.cache_resource
 def train_models():
-    intents = load_intents()
+    intents = load_intents(DATA_FILE.stat().st_mtime_ns)
     texts, labels = make_examples(intents)
     models = build_models(texts, labels)
     for model in models.values():
@@ -163,46 +201,39 @@ def train_models():
 
 @st.cache_data
 def compare_models():
-    """A repeatable held-out test for the presentation; final chat models use all data."""
+    """Compare models with the mean score from five stratified validation folds."""
 
-    intents = load_intents()
+    intents = load_intents(DATA_FILE.stat().st_mtime_ns)
     texts, labels = make_examples(intents)
-
-    x_train, x_test, y_train, y_test = train_test_split(
-        texts,
-        labels,
-        test_size=0.25,
-        random_state=42,
-        stratify=labels
-    )
-
     scores = {}
+    folds = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
 
-    for name, model in build_models(texts, labels).items():
-        model.fit(x_train, y_train)
-
-        prediction = model.predict(x_test)
+    for name in build_models(texts, labels):
+        fold_scores = []
+        for train_index, test_index in folds.split(texts, labels):
+            x_train = [texts[index] for index in train_index]
+            x_test = [texts[index] for index in test_index]
+            y_train = [labels[index] for index in train_index]
+            y_test = [labels[index] for index in test_index]
+            model = build_models(texts, labels)[name]
+            model.fit(x_train, y_train)
+            prediction = model.predict(x_test)
+            fold_scores.append({
+                "Accuracy": accuracy_score(y_test, prediction),
+                "Precision": precision_score(
+                    y_test, prediction, average="weighted", zero_division=0
+                ),
+                "Recall": recall_score(
+                    y_test, prediction, average="weighted", zero_division=0
+                ),
+                "F1 Score": f1_score(
+                    y_test, prediction, average="weighted", zero_division=0
+                ),
+            })
 
         scores[name] = {
-            "Accuracy": accuracy_score(y_test, prediction),
-            "Precision": precision_score(
-                y_test,
-                prediction,
-                average="weighted",
-                zero_division=0
-            ),
-            "Recall": recall_score(
-                y_test,
-                prediction,
-                average="weighted",
-                zero_division=0
-            ),
-            "F1 Score": f1_score(
-                y_test,
-                prediction,
-                average="weighted",
-                zero_division=0
-            )
+            metric: float(np.mean([score[metric] for score in fold_scores]))
+            for metric in fold_scores[0]
         }
 
     return scores
@@ -230,7 +261,7 @@ st.set_page_config(page_title="TAR UMT FAQ Chatbot", page_icon="🎓", layout="c
 st.title("🎓 TAR UMT FAQ Chatbot")
 st.caption("Ask about programmes, admissions, fees, campus, library, intakes and scholarships.")
 
-intents = load_intents()
+intents = load_intents(DATA_FILE.stat().st_mtime_ns)
 with st.sidebar:
     st.header("Model Comparison")
     st.write("Three required models are trained from the same FAQ patterns.")
@@ -265,7 +296,7 @@ with st.sidebar:
     )
 
     st.caption(
-        "Evaluation is based on a held-out test dataset."
+        "Evaluation is the mean of five stratified validation folds."
     )
 
     if st.button("Clear Chat"):
