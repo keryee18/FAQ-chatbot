@@ -4,10 +4,12 @@ Run with: streamlit run app.py
 """
 import json
 import random 
+import numpy as np
 import pandas as pd
 from pathlib import Path
 
 import streamlit as st
+import tensorflow as tf
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
@@ -18,8 +20,8 @@ from sklearn.metrics import (
     f1_score
 )
 from sklearn.model_selection import train_test_split
-from sklearn.neural_network import MLPClassifier
 from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import LabelEncoder
 
 DATA_FILE = Path(__file__).with_name("intents.json")
 FALLBACK = "I’m not confident I understand that question. Please try rephrasing it or ask about programmes, admissions, fees, the library, intakes, scholarships or campus location."
@@ -39,6 +41,75 @@ def make_examples(intents):
     return texts, labels
 
 
+def residual_block(inputs, units, dropout_rate, name):
+    """A two-layer residual block for numeric text features."""
+    shortcut = inputs
+    x = tf.keras.layers.Dense(units, activation="relu", name=f"{name}_dense_1")(inputs)
+    x = tf.keras.layers.Dropout(dropout_rate, name=f"{name}_dropout")(x)
+    x = tf.keras.layers.Dense(units, name=f"{name}_dense_2")(x)
+    x = tf.keras.layers.Add(name=f"{name}_add")([shortcut, x])
+    return tf.keras.layers.Activation("relu", name=f"{name}_relu")(x)
+
+
+def build_resnet34(input_size, class_count):
+    """Build a ResNet-34-style MLP: 1 + (16 residual blocks * 2) + 1 layers."""
+    inputs = tf.keras.Input(shape=(input_size,), name="tfidf_features")
+    x = tf.keras.layers.Dense(128, activation="relu", name="input_projection")(inputs)
+    x = tf.keras.layers.Dropout(0.3, name="input_dropout")(x)
+
+    # The ResNet-34 block layout is 3 + 4 + 6 + 3 = 16 blocks.
+    for block_number in range(1, 17):
+        x = residual_block(x, 128, 0.2, f"residual_block_{block_number}")
+
+    outputs = tf.keras.layers.Dense(
+        class_count, activation="softmax", name="intent_output"
+    )(x)
+    model = tf.keras.Model(inputs, outputs, name="resnet34_intent_classifier")
+    model.compile(
+        optimizer=tf.keras.optimizers.Adam(learning_rate=0.001),
+        loss="categorical_crossentropy",
+        metrics=["accuracy"],
+    )
+    return model
+
+
+class ResNet34TextClassifier:
+    """A scikit-learn-compatible interface around the TensorFlow ResNet-34 model."""
+
+    def __init__(self, epochs=40, batch_size=16):
+        self.epochs = epochs
+        self.batch_size = batch_size
+        self.vectorizer = TfidfVectorizer(ngram_range=(1, 2), stop_words="english")
+        self.label_encoder = LabelEncoder()
+
+    def fit(self, texts, labels):
+        tf.keras.backend.clear_session()
+        tf.keras.utils.set_random_seed(42)
+
+        features = self.vectorizer.fit_transform(texts).toarray().astype(np.float32)
+        encoded_labels = self.label_encoder.fit_transform(labels)
+        self.classes_ = self.label_encoder.classes_
+        target = tf.keras.utils.to_categorical(encoded_labels, len(self.classes_))
+
+        self.model = build_resnet34(features.shape[1], len(self.classes_))
+        self.model.fit(
+            features,
+            target,
+            epochs=self.epochs,
+            batch_size=self.batch_size,
+            verbose=0,
+        )
+        return self
+
+    def predict_proba(self, texts):
+        features = self.vectorizer.transform(texts).toarray().astype(np.float32)
+        return self.model.predict(features, verbose=0)
+
+    def predict(self, texts):
+        probabilities = self.predict_proba(texts)
+        return self.classes_[np.argmax(probabilities, axis=1)]
+
+
 def build_models(texts, labels):
     """Train all three required classifiers on the complete FAQ dataset."""
     return {
@@ -50,10 +121,7 @@ def build_models(texts, labels):
             ("tfidf", TfidfVectorizer(ngram_range=(1, 2), stop_words="english")),
             ("model", RandomForestClassifier(n_estimators=300, class_weight="balanced", random_state=42)),
         ]),
-        "Neural Network": Pipeline([
-            ("tfidf", TfidfVectorizer(ngram_range=(1, 2), stop_words="english")),
-            ("model", MLPClassifier(hidden_layer_sizes=(64,32), max_iter=1000, early_stopping=False, random_state=42)),
-        ]),
+        "ResNet-34 Neural Network": ResNet34TextClassifier(),
     }
 
 

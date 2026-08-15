@@ -5,8 +5,8 @@ import random
 import nltk
 from nltk.stem import WordNetLemmatizer
 import tensorflow as tf
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense, Dropout
+from tensorflow.keras.models import Model
+from tensorflow.keras.layers import Activation, Add, Dense, Dropout, Input
 from tensorflow.keras.optimizers import Adam
 
 # Download necessary NLTK components for processing text
@@ -68,16 +68,39 @@ training = np.array(training, dtype=object)
 train_x = np.array(list(training[:, 0]))
 train_y = np.array(list(training[:, 1]))
 
-# 4. Build and Train the Neural Network Model
-model = Sequential([
-    # Dense layers - fully connected layers
-    # Dropout layers - to prevent overfitting
-    Dense(128, input_shape=(len(train_x[0]),), activation="relu"),
-    Dropout(0.5),
-    Dense(64, activation="relu"),
-    Dropout(0.3),
-    Dense(len(train_y[0]), activation="softmax")
-])
+# 4. Build and Train a ResNet-style neural network
+#
+# This is a ResNet-34-style residual MLP, appropriate for Bag-of-Words feature
+# vectors. It has 16 residual blocks with two dense layers each, plus the input
+# projection and output classifier: 1 + (16 * 2) + 1 = 34 dense layers.
+def residual_block(inputs, units, dropout_rate, name):
+    """Apply two dense layers and add their output back to the shortcut."""
+    shortcut = inputs
+    x = Dense(units, activation="relu", name=f"{name}_dense_1")(inputs)
+    x = Dropout(dropout_rate, name=f"{name}_dropout")(x)
+    x = Dense(units, activation=None, name=f"{name}_dense_2")(x)
+    x = Add(name=f"{name}_add")([shortcut, x])
+    return Activation("relu", name=f"{name}_relu")(x)
+
+
+inputs = Input(shape=(len(train_x[0]),), name="bag_of_words")
+# Project the vocabulary-sized input to a fixed width so residual additions
+# have matching shapes.
+x = Dense(128, activation="relu", name="input_projection")(inputs)
+x = Dropout(0.5, name="input_dropout")(x)
+
+# ResNet-34 has 16 two-layer residual blocks (3 + 4 + 6 + 3). Keeping their
+# width at 128 makes the skip connections valid for text feature vectors.
+for block_number in range(1, 17):
+    x = residual_block(
+        x,
+        units=128,
+        dropout_rate=0.3,
+        name=f"residual_block_{block_number}"
+    )
+
+outputs = Dense(len(train_y[0]), activation="softmax", name="intent_output")(x)
+model = Model(inputs=inputs, outputs=outputs, name="resnet34_intent_classifier")
 
 # Compile the model (multi-class classification)
 model.compile(optimizer=Adam(learning_rate=0.01), loss="categorical_crossentropy", metrics=["accuracy"])
