@@ -147,7 +147,8 @@ def get_response(intents_list, intents_json):
     for i in list_of_intents:
         if i["tag"] == tag:
             # Always choose a response first
-            selected_response_text = random.choice(i["responses"]) if i["responses"] else ""
+            responses = i.get("responses", [])
+            selected_response_text = random.choice(responses) if responses else ""
 
             response_parts = [selected_response_text]
 
