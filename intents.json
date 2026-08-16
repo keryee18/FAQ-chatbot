@@ -159,9 +159,9 @@
     },
     {
       "tag": "accommodation",
-      "patterns": ["I want to know about hostel","I want to know about accomodation","Does TAR UMT have hostels?", "Where can I live near campus?", "Hostel fees and room types", "Off-campus accommodation options", "Is there student housing in Setapak?", "hostel", "accommodation", "housing", "room", "place to stay", "residence", "stay", "near campus", "dorm", "Where do students stay?", "Can I stay in hostel?",
+      "patterns": ["I want to know about hostel","I want to know about accomodations","Does TAR UMT have hostels?", "Where can I live near campus?", "Hostel fees and room types", "Off-campus accommodation options", "Is there student housing in Setapak?", "hostel", "accommodation", "housing", "room", "place to stay", "residence", "stay", "near campus", "dorm", "Where do students stay?", "Can I stay in hostel?",
                     "How much is hostel room?", "Is hostel available for new students?", "Can I apply for hostel early?", "Is there room for couples?", "How to book hostel?", "Any apartment nearby?", "Can I share a room?", "Are there rooms for international students?", "Do hostels have air-conditioning?", "Is there single room option?",
-                    "Can I stay off-campus?", "How much is monthly rent nearby?", "Are there shared apartments?", "Do I need to apply for hostel separately?", "Can I choose my roommate?", "Is there laundry in hostel?", "Are there female and male hostels?"],
+                    "Can I stay off-campus?", "How much is monthly rent nearby?", "Are there shared apartments?", "Do I need to apply for hostel separately?", "Can I choose my roommate?", "Is there laundry in hostel?", "Are there female and male hostels?", "I want to know about accomodation", "can i live in tarumt?"],
       "responses": ["TAR UMT offers on-campus hostel accommodation at the KL Main Campus with 24-hour security, and air-conditioned rooms. Off-campus housing options nearby (e.g., PV condominiums, Taman Bunga Raya, Teratai Residency) are also popular among students."],
       "source_url": "https://www.tarc.edu.my/dsa/contentsub.jsp?cat_id=1210BF6A-BE89-49AC-B823-DC729888CB71&fmenuid=DCF6BB08-61CA-4FB4-9057-18913B3987C4"
     },
@@ -435,7 +435,7 @@
                     "canteen opening hours","is there vegetarian food on campus","where to get halal food at TAR UMT","cafes near TAR UMT campus","is Yum Yum cafeteria open", "Could you provide information regarding dining facilities at TAR UMT?",
                     "What cafeteria and food court options are available for students?", "Is there a complete list of on-campus food stalls and their locations?",   "Could you direct me to the main food court at the KL campus?", "Any good spots to grab a bite on campus?",
                     "Where do people usually get food around TAR UMT?", "Super hungry, what are my food options here?", "Where's the best place to eat at TAR UMT?", "Any quick snack spots between classes?", "Where can I grab a fast lunch?", "What's good for breakfast on campus today?",
-                   "TAR UMT food spots", "Campus food court location", "Canteen options TARUMT", "Veggie food TAR UMT", "On-campus dining locations"
+                   "TAR UMT food spots", "Campus food court location", "Canteen options TARUMT", "Veggie food TAR UMT", "On-campus dining locations", "Does the school have canteen?"
 ],
       "responses": [
         "TAR UMT KL Main Campus features multiple food courts and cafeterias offering a wide variety of affordable local Malay, Chinese, Indian, and vegetarian dishes, as well as halal-certified food options."
