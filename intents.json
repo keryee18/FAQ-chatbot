@@ -4,14 +4,14 @@
       "tag": "greeting",
       "patterns": ["Hi", "Hello", "Hey", "Is anyone there?", "Good day", "What's up", "Halo", "Hi there", "Good morning", "Good afternoon", "Good evening", "Yo", "Greetings", "Hello chatbot",
                     "Anyone available?", "Are you online?", "Help please", "Hey there", "Hiya", "Morning", "Afternoon", "Evening", "Sup", "What's happening", "Hello there", "Hi chatbot", "Good to see you",
-                    "How are you?", "Can you help me?", "Hello!", "Hey!", "Hi there!", "Hello there!"],
+                    "How are you?", "Can you help me?"],
       "responses": ["Hello! Welcome to the TAR UMT FAQ Chatbot.", "Hi there! How can I help you today?", "Greetings! Feel free to ask me anything about TAR UMT."]
     },
     {
       "tag": "goodbye",
       "patterns": ["Bye", "See you later", "Goodbye", "I am leaving", "Talk to you later", "Bye bye", "Cya", "Good night", "Got to go", "Have a nice day", "See ya", "I'm off", "Leaving now",
                     "Catch you later", "Farewell", "Take care", "Until next time", "See you soon", "Adios", "Later", "Peace out", "I gotta go", "I'm heading out", "Have a good one", "It was nice chatting",
-                    "Until then", "Time to go", "Bye!", "Later!", "See ya!", "Thanks!", "Goodnight", "TTYL"],
+                    "Until then", "Time to go", "Thanks!", "Goodnight", "TTYL"],
       "responses": ["Goodbye! Have a great day ahead.", "See you later! Feel free to ask if you need more help.", "Bye! Take care."]
     },
     {
@@ -129,7 +129,7 @@
                     "next intake", "semester start", "when to study", "when can I join", "application month", "intake dates", "When is the next intake?", "When does the intake open?", "Do you have intakes every year?", "When is the semester intake?", "When can I register for intake?", "Any intake this month?",
                     "What is the intake schedule?", "Is there an August intake?", "Is there a September intake?", "When does intake start for new students?", "When do classes begin for the intake?", "What is the next intake date?", "Can I apply for the next intake?", "When is the application period for intake?", "When is the January intake closing?", "When is the May intake closing?", "Do you have a November intake?", "When does the October intake start?", "Is there a July intake?", "When does the new semester open?", "Can I join mid-year?", "What month does intake usually begin?", "When is the next academic intake?", "Is there a February intake?"],
       "responses": ["TAR UMT has intakes at different times of the year, depending on the programme. Please check the current intake listing for your selected programme."],
-      "source_url": "https://www.tarc.edu.my/admissions/programmes/programme-offered-a-z/undergraduate-programme/"
+      "source_url": "https://dace.tarc.edu.my/programmes/intakes"
     },
     {
       "tag": "application_documents",
@@ -143,10 +143,13 @@
     {
       "tag": "entry_requirements_general",
       "patterns": ["I want to know about entry requirements","What are the entry requirements?", "Can I enter with SPM?", "How many credits do I need for diploma?", "What qualification is needed for a degree?", "Can I apply for foundation?", "What grades are needed to enrol?", "What are the minimum requirements?", "Can I enter using UEC?",
-                    "requirements", "entry requirements", "credits", "SPM result", "UEC", "qualification", "minimum grade", "subject requirements", "entry qualification", "Can I apply with STPM?", "Can I apply with A-Level?", "Can I use foundation to enter degree?", "Do I need English?",
+                    "requirements", "entry requirements", "credits", "SPM result", "UEC", "qualification", "minimum grade", "subject requirements", "entry qualification", "Can I apply with STPM?", "Can I apply with A-Level?", "Can I use foundation to enter degree?", "Do I need English?", "What should I study after SPM?", "What should I continue after A-level?",
                     "Can I enter with O-Level?", "Can I enter with UEC and credits?", "What subjects are needed?", "Are there specific subject prerequisites?", "What grades are acceptable?", "Do I need a certain CGPA?", "Can I apply with Matriculation?", "Can I enter with diploma qualification?", "What is the minimum number of credits?", "Do I need science subjects?", "What if I have weak English?", "Can I apply with a private school certificate?", "Do I need 5 credits exactly?", "Are there subject requirements for accounting?", "Can I apply with a technical certificate?", "What is the minimum grade for foundation?", "Do my SPM grades meet the admission requirement?", "What qualification do I need before applying?", "Can I enrol if I meet the minimum credits?", "Is there a required grade for English?", "What are the entry conditions for a diploma programme?", "What academic result is accepted for foundation entry?", "Can a UEC holder satisfy the admission requirements?", "Are there minimum subject grades for admission?", "What result do I need to start a degree?", "Can I qualify with a previous diploma?", "What is the academic eligibility for TAR UMT?", "How many SPM credits are required to apply?"],
       "responses": ["General entry requirements differ by qualification and programme. As a guide, Foundation commonly requires 5 SPM credits and Diploma commonly requires 3 SPM credits. Degree programmes have their own pre-university requirements. Always confirm the requirements on the individual programme page."],
-      "source_url": "https://www.tarc.edu.my/admissions/programmes/programme-offered-a-z/undergraduate-programme/"
+      "source_urls": [
+                      "https://www.tarc.edu.my/files/admissions/2021mer/8B48CFA5-B4B8-4882-A553-6C6B5AA7BBD6.pdf",
+                      "https://www.tarc.edu.my/files/admissions/2021mer/93ECE72C-D16E-4DEC-934A-E2A4621CC3A4.pdf"
+      ]
     },
     {
       "tag": "scholarship",
@@ -185,7 +188,7 @@
                   "Can international students apply for PTPTN?", "PTPTN loan waiver for First Class Honours TAR UMT", "How to convert PTPTN to scholarship TAR UMT?", "PTPTN loan approval duration TAR UMT", "I need help applying for PTPTN at TARUMT",
                   "TAR UMT PTPTN briefing timing", "How do I submit my PTPTN agreement form?", "Where to send verified PTPTN documents in TAR UMT?", "TAR UMT PTPTN hotline or counter location", "PTPTN loan for new intake TAR UMT",
                   "Can I reapply for PTPTN if rejected?"],
-      "responses": ["Yes, eligible Malaysian students in Diploma and Degree programmes can apply for PTPTN. The Department of Student Affairs (DSA) conducts regular briefing sessions and assists with document verification."],
+      "responses": ["Eligible Malaysian students in Diploma and Degree programmes can apply for PTPTN. The Department of Student Affairs (DSA) conducts regular briefing sessions and assists with document verification."],
       "source_url": "https://www.tarc.edu.my/dsa/financial-aid/ptptn/"
     },
     {
@@ -214,8 +217,8 @@
                     "What programmes are offered in TAR UMT Perak?", "What programmes are offered in TAR UMT Pahang?", "How to contact TAR UMT Penang branch?", "How to contact TAR UMT Perak branch?", "How to contact TAR UMT Johor branch?",
                     "How to contact TAR UMT Pahang branch?", "How to contact TAR UMT Sabah branch?", "Can I transfer between TAR UMT campuses?", "Can I change campus from KL to Penang TAR UMT?", "Is hostel provided at TAR UMT branch campuses?",
                     "Does TAR UMT Penang have hostel accommodation?", "Does TAR UMT Perak have hostel facilities?", "Does TAR UMT Johor have on-campus hostel?", "Are tuition fees the same across all TAR UMT campuses?", "Which TAR UMT campus is closest to me?",
-                    "Where is the main campus of TAR UMT?", "Is TAR UMT in Sabah or Sarawak?", "How big is the TAR UMT Perak campus?", "Does TAR UMT Penang campus have a gym?", "Is there shuttle bus provided at TAR UMT branch campuses?",
-                    "Where can I find the list of TAR UMT regional campuses?"],
+                    "Where is the main campus of TAR UMT?", "Is TAR UMT in Sabah or Sarawak?", "How big is the TAR UMT Perak campus?", "Does TAR UMT Penang campus have a gym?", "Where can I find the list of TAR UMT regional campuses?"],
+      "responses": ["In addition to the KL Main Campus, TAR UMT has 5 branch campuses: Penang, Perak, Johor, Pahang, and Sabah."],
       "source_url": "https://www.tarc.edu.my/contact-us/"
     },
     {
@@ -293,7 +296,7 @@
                     "Can I wear a singlet?", "Is dyed hair allowed?", "Are ripped jeans allowed?","Can I wear crocs?", "Can I wear a cap in class?","Student dress code guidelines","TARUMT dress code","TARC dress code rules", "What to wear for lectures?", "Are there restrictions on clothing?",
                     "Is smart casual required?","What is appropriate attire for class?",  "Dress code for library", "Dress code for exam hall",  "What should I wear on the first day?",  "Can girls wear short skirts?",  "Can guys wear shorts?",  "Attire rules",
                     "Attire policy", "Clothing guidelines", "What is not allowed to wear?", "Dress code" , "Attire","Clothing rules","Proper attire","Improper attire", "What to wear", "Can wear shorts?", "Can wear slippers?", "Can wear skirt?",  "Dresscode" ],
-        "responses": [ "Students are expected to dress appropriately on campus. Guidelines include wearing collared shirts or T-shirts with sleeves (tucked in, except Hawaiian-style), along with full-length pants, non-torn jeans, or skirts. Shorts, torn attire, Japanese slippers, and revealing clothes (such as mini skirts, low necklines, bare-back tops, exposed midriffs, or spaghetti straps) are prohibited. Proper sports attire is allowed for games and co-curricular classes. Additionally, all students MUST wear their TAR UMT Student ID card at all times on campus."],
+        "responses": ["Students are expected to dress appropriately on campus. Guidelines include wearing collared shirts or T-shirts with sleeves (tucked in, except Hawaiian-style), along with full-length pants, non-torn jeans, or skirts. Shorts, torn attire, Japanese slippers, and revealing clothes (such as mini skirts, low necklines, bare-back tops, exposed midriffs, or spaghetti straps) are prohibited."],
         "source_url": "https://www.tarc.edu.my/dsa/a/student-dress-code/"
     },
     {
@@ -312,10 +315,9 @@
                     "When will my student card be ready?","What documents are needed for student ID?","Can I upload my own photo for the student ID?","First time getting a student card","I misplaced my campus card","My student ID is broken","Fee for replacing lost student card","Report a lost student ID",
                     "How long does a replacement student card take?","Stolen student ID card replacement","Does the university have a digital student ID?","My student card isn't working at the gate","How to activate my student ID card?","When does my student ID expire?","Can I access the library without my student card?",
                     "What should I do if I find someone else's student card?", "Can I enter campus while waiting for a replacement card?", "Where do I report a stolen campus card?", "Can my student card be used for attendance?", "Do I need to carry my student ID during examinations?", "My name is wrong on my student card", 
-                    "How do I update the photo on my student ID?", "Can an expired student card still be used?", "Student card collection time", "Who should I contact about an ID card problem?", "Can I collect my student card on behalf of a friend?", "Student ID replacement procedure"],
-      "responses": [
-        "If you have lost or damaged your student ID card, please report it to the Department of Student Affairs (DSA) and follow the procedure for a replacement card. A replacement fee may apply."
-      ]
+                    "How do I update the photo on my student ID?", "Can an expired student card still be used?", "Student card collection time", "Who should I contact about an ID card problem?", "Can I collect my student card on behalf of a friend?", "Student ID replacement procedure", "where to upload student card photo?"],
+      "responses": ["Please upload the Student ID Card Photo on the Student Intranet > Application > Student ID Card Photo. You will be notified via your TAR UMT email address to make/collect your student ID card. If you have lost or damaged your student ID card, please report it to the Department of Student Affairs (DSA) and follow the procedure for a replacement card. A replacement fee may apply."],
+      "source_url": "https://web.tarc.edu.my/portal/login.jsp"
     },
     {
       "tag": "graduation_convocation",
@@ -323,21 +325,17 @@
                     "Convocation guest tickets","Can I collect my scroll early?","convocation","graduation","convo","convo date","when is convo","when is my graduation","convocation session details","graduation date for degree","diploma convocation date","how to apply for convocation","convocation registration link",
                     "graduation gown rental","where to collect academic gown","How do I confirm that I am eligible for convocation?", "Can I attend convocation if I have outstanding fees?", "What should I bring on convocation day?", "How many guests can attend my graduation ceremony?", "Can I change my convocation session?", 
                     "What happens if I cannot attend convocation?", "How do I collect my certificate after graduation?", "When can graduates collect their academic transcript?", "What is the convocation dress code?", "How do I return my graduation gown?", "Can I take photos at the convocation venue?", "Convocation attendance confirmation"],
-      "responses": [
-        "Convocation ceremonies are held periodically for graduates. Details regarding registration, gown rental, and guest invitations are updated on the official Graduation portal once your results are finalized."
-      ]
+      "responses": ["Convocation ceremonies are held periodically for graduates. Details regarding registration, gown rental, and guest invitations are updated on the official Graduation portal once your results are finalized."]
     },
     {
       "tag": "add_drop_subject",
       "patterns": ["How to add a subject?","How to drop a course?","What is the add/drop deadline?","Can I change my elective?","How to register for a subject?", "I want to change my timetable","What if I fail a subject?","add drop","add drop subject",
-                  "how to add drop course","add drop period", "when is add drop week", "add subject deadline","drop subject deadline","how to drop a class","cannot register subject","subject registration issue","how to swap class group","how to change lecture group",
-                  "how to change tutorial slot","timetable clash what to do","how to resolve timetable collision","can I switch elective course", "how to change my major subject",
+                  "how to add drop course","add drop period", "when is add drop week", "add subject deadline","drop subject deadline","how to drop a class","cannot register subject","subject registration issue",
+                  "timetable clash what to do","how to resolve timetable collision","can I switch elective course", "how to change my major subject",
                   "Can I add a subject after the deadline?", "Can I drop a subject after add/drop week?", "Will dropping a subject affect my fees?", "How many subjects can I register this semester?", 
                   "Where can I see my registered subjects?", "Can I register a subject with a prerequisite?", "What should I do if a class is full?", "How do I withdraw from a subject?", "Can I add a repeat subject?",
-                   "Subject registration portal", "Can my advisor approve a late subject change?", "I registered the wrong subject"],
-      "responses": [
-        "Subject registration and add/drop must be done within the stipulated dates at the beginning of each semester via the student portal. Please consult your faculty office or academic advisor for specific guidance on course changes."
-      ],
+                  "Subject registration portal", "Can my advisor approve a late subject change?", "I registered the wrong subject"],
+      "responses": ["Subject registration and add/drop must be done within the stipulated dates at the beginning of each semester via the student portal. Please consult your faculty office or academic advisor for specific guidance on course changes."],
       "source_url": "https://www.tarc.edu.my/admissions/application/general-information-on-application/"
     },
     {
@@ -349,9 +347,7 @@
                   "Where do unclaimed items go?", "Lost and found office operating hours", "I lost my earphones at campus", "My phone was left in a classroom", "How can I check whether an item was handed in?", "Can Security help me find a lost item?", 
                   "Lost item report form", "I found a bag, what should I do?", "Can I claim lost property without my student card?", "I lost something in the parking area", "Who should I contact about a missing bicycle?", "Lost and found online listing", 
                   "How soon should I report a missing item?", "Can someone else collect my found item?", "Found property on campus", "Lost item at the cafeteria", "Campus lost property assistance"],
-      "responses": [
-        "If you have lost or found an item on campus, please report it to the Security Office located in the main campus area or the nearest administrative office. You can also find \"Lost and Found\" section in TAR UMT app."
-      ],
+      "responses": ["If you have lost or found an item on campus, please report it to the Security Office located in the main campus area or the nearest administrative office. You can also find \"Lost and Found\" section in TAR UMT app."],
       "source_url": "https://www.tarc.edu.my/dsa/contact-us/"
     },
     {
@@ -364,9 +360,7 @@
                     "What is the name of the TAR UMT wifi network?", "My wifi account is locked", "How do I reset my campus wifi password?", "Wifi cannot connect after changing password", "Can I use campus wifi in the hostel?", 
                     "How do I get IT help for wifi?", "Campus wifi login credentials", "Why does wifi ask me to sign in again?", "Can alumni use the university wifi?", "Is there a data limit on campus wifi?", 
                     "Wifi access for new students", "Unable to authenticate to TAR UMT wifi", "Internet service on campus"],
-      "responses": [
-        "Students can connect to the campus wifi using their official student email credentials. For configuration issues or connection problems, please visit the IT Department or check the connectivity guide on the student portal."
-      ]
+      "responses": ["Students can connect to the campus wifi using their official student email credentials. For configuration issues or connection problems, please visit the IT Department or check the connectivity guide on the student portal."]
     },
     {
       "tag": "internship_support",
@@ -376,9 +370,7 @@
                   "internship briefing date","who is my internship coordinator","faculty internship advisor", "Is internship compulsory for my programme?", "What are the internship requirements?", "How many weeks is industrial training?", 
                   "Can I find my own internship company?", "How do I get internship approval?", "What documents must I submit before internship?", "Can I do an internship overseas?", "What happens if I cannot secure an internship?", 
                   "Internship logbook submission", "How is internship assessed?", "Can I change my internship company?", "When do I submit my internship report?", "Industrial training application deadline", "Internship employer evaluation form"],
-      "responses": [
-        "The Department of Student Affairs (DSA) and individual faculties provide support for internship placements. Please check the student portal for job postings, career fairs, and internship application guidelines specific to your programme."
-      ],
+      "responses": ["The Department of Student Affairs (DSA) and individual faculties provide support for internship placements. Please check the student portal for job postings, career fairs, and internship application guidelines specific to your programme."],
       "source_url": "https://www.tarc.edu.my/jobs/job/jobList.jsp"
     },
     {
@@ -391,9 +383,7 @@
                   "Where to ask questions about admission at TAR UMT?","Who to contact for general enquiries at TAR UMT?","TAR UMT helpline phone number","How to reach TAR UMT student service center?","Where is the TAR UMT enquiry counter?",
                   "Who can I speak to about my application status?","TAR UMT helpdesk email address","TAR UMT phone number for new applicants","What are the office hours for TAR UMT counter?","How to call TAR UMT Setapak campus?",
                   "TAR UMT student enquiry phone number","Is the TAR UMT hotline available on public holidays?","Where can I find TAR UMT contact details?","What is the email for TAR UMT admissions?","TAR UMT official phone line","How to contact TAR UMT Department of Admissions?","TAR UMT main operator contact number"],
-      "responses": [
-        "For emergency/security services, please contact 03-4145 0278 / 03-4145 0250 / 011-1054 0154, others department please click the URL below to view more information: https://www.tarc.edu.my/contact-us"
-      ],
+      "responses": ["For emergency/security services, please contact 03-4145 0278 / 03-4145 0250 / 011-1054 0154, others department please click the URL below to view more information: https://www.tarc.edu.my/contact-us"],
       "source_url": "https://www.tarc.edu.my/dsa/contact-us/"
     },
     {
@@ -405,9 +395,7 @@
                   "Can my parent pay my fees for me?", "Can international students pay fees online?", "Is there a surcharge for card payments?", "Can I pay fees using a bank transfer?", "What reference number should I use for payment?", 
                   "How long does an online fee payment take to update?", "Can I pay hostel fees together with tuition?", "Payment receipt for tuition fees", "What happens if I pay fees late?", "How do I request a fee statement?", 
                   "Can I pay at a Public Bank branch?", "Tuition fee payment confirmation", "Bursary payment counter hours"],
-      "responses": [
-        "Tuition fees can be paid online via Public Bank Internet Banking, JomPAY, FPX, or DuitNow. Cash payments are accepted at Public Bank branches, and debit/credit card payments can be made at the Bursary Counter on Level 2, Bangunan Tun Tan Siew Sin at the KL Campus."
-      ],
+      "responses": ["Tuition fees can be paid online via Public Bank Internet Banking, JomPAY, FPX, or DuitNow. Cash payments are accepted at Public Bank branches, and debit/credit card payments can be made at the Bursary Counter on Level 2, Bangunan Tun Tan Siew Sin at the KL Campus."],
       "source_url": "https://www.tarc.edu.my/bursary/guidelines-on-payment-of-fees/"
     },
     {
@@ -419,9 +407,7 @@
                   "How do I know whether my EMC was approved?", "Can I appeal a failed subject result?", "What is the deadline for a result appeal?", "Can I request a recheck of my examination marks?", 
                   "Who do I contact about an exam appeal?", "What happens after an EMC application is approved?", "Can I sit for an exam if I am unwell?", "I was hospitalized during my examination", "How do I submit a medical certificate for an exam?", 
                   "Can I appeal my final grade?", "Exam absence due to emergency", "Extenuating circumstances application"],
-      "responses": [
-        "If you miss a final exam due to illness or unforeseen circumstances, you must submit an Extenuating Mitigating Circumstances (EMC) application via the Student Intranet within 48 hours with a valid medical certificate (MC). Result or continuation appeals can be submitted via the Department of Examinations and Credit Accumulation (DECA)."
-      ],
+      "responses": ["If you miss a final exam due to illness or unforeseen circumstances, you must submit an Extenuating Mitigating Circumstances (EMC) application via the Student Intranet within 48 hours with a valid medical certificate (MC). Result or continuation appeals can be submitted via the Department of Examinations and Credit Accumulation (DECA)."],
       "source_url": "https://examination.tarc.edu.my/examination-services/faqs"
     },
     {
@@ -432,36 +418,30 @@
                   "insurance coverage for injury on campus","accident claim procedure","where to get insurance claim form","DSA insurance claim counter",  "What happens if I get into an accident while studying at TAR UMT?", "TAR UMT insurance coverage", "GPA insurance claim steps", "DSA medical reimbursement", "Accident insurance deadline",
                   "Student claim form DSA", "Medical bill claim TARUMT", "Injury insurance policy", "Could you clarify the terms of the Group Personal Accident (GPA) insurance scheme?", "What is the officially mandated procedure for insurance claims at TAR UMT?",
                   "Where is the Department of Student Affairs insurance counter located?", "Does student fee payment automatically include Personal Accident coverage?", "Where can I submit completed insurance forms at the KL Main Campus?"],
-      "responses": [
-        "All registered TAR UMT students are covered under the Student's Insurance Scheme for personal accidents. To submit a claim, visit the Department of Student Affairs (DSA) with original medical bills, payment receipts, a police report (if applicable), and your student ID."
-      ],
+      "responses": ["All registered TAR UMT students are covered under the Student's Insurance Scheme for personal accidents. To submit a claim, visit the Department of Student Affairs (DSA) with original medical bills, payment receipts, a police report (if applicable), and your student ID."],
       "source_url": "https://www.tarc.edu.my/dsa/students-insurance-scheme/"
     },
     {
       "tag": "campus_dining_food",
-      "patterns": ["Where can I eat on campus?","Are there canteens or food courts at TAR UMT?","Is halal food available on campus?","What food options are in TAR UMT KL campus?", "Where is the main food court?",
+      "patterns": ["Where can I eat on campus?","Are there canteens or food courts at TAR UMT?","Is halal food available on campus?","What food options are in TAR UMT KL campus?", "Where is the main food court?","i am so hungry",
                     "beverages","where to buy food","where to get lunch","where to eat lunch","places to eat","food","canteen","food court","cafeteria","where to eat","breakfast options on campus","where to buy dinner near campus","food stalls in TAR UMT",
                     "canteen opening hours","is there vegetarian food on campus","where to get halal food at TAR UMT","cafes near TAR UMT campus","is Yum Yum cafeteria open", "Could you provide information regarding dining facilities at TAR UMT?",
                     "What cafeteria and food court options are available for students?", "Is there a complete list of on-campus food stalls and their locations?",   "Could you direct me to the main food court at the KL campus?", "Any good spots to grab a bite on campus?",
                     "Where do people usually get food around TAR UMT?", "Super hungry, what are my food options here?", "Where's the best place to eat at TAR UMT?", "Any quick snack spots between classes?", "Where can I grab a fast lunch?", "What's good for breakfast on campus today?",
-                   "TAR UMT food spots", "Campus food court location", "Canteen options TARUMT", "Veggie food TAR UMT", "On-campus dining locations", "Does the school have canteen?"],
-      "responses": [
-        "TAR UMT KL Main Campus features multiple food courts and cafeterias offering a wide variety of affordable local Malay, Chinese, Indian, and vegetarian dishes, as well as halal-certified food options."
-      ],
+                    "Campus food court location", "Canteen options TARUMT", "Veggie food TAR UMT", "On-campus dining locations", "Does the school have canteen?"],
+      "responses": ["TAR UMT KL Main Campus features multiple food courts and cafeterias offering a wide variety of affordable local Malay, Chinese, Indian, and vegetarian dishes, as well as halal-certified food options."],
       "source_url": "https://www.tarc.edu.my/dsa/food-and-beverage/"
     },
     {
       "tag": "attendance",
-      "patterns": ["How to take attendance?","How to record my attendance for class?","How to mark attendance in portal?","Where to scan QR code for attendance?","How do I mark my attendance in iTARC?","How to submit class attendance?",
-                  "How to see my attendance?","Where to check my class attendance record?","How to view my attendance percentage?","How to check if my attendance was marked?","Where to find attendance report on portal?","How much is my total attendance?",
-                  "What to do if I forgot to mark attendance?","Attendance status check","How to check attendance requirements for exams?","My attendance is missing for a lecture","How do I take attendance during lecture?","Where is the attendance scanner in the app?",
-                  "How to check in for tutorial class?","How do I register my attendance online?","What is the attendance code for my class?","Can I mark attendance manually?","How to sign attendance for lab session?","Attendance link for online class",
-                  "How to scan class QR code?","How to check my overall attendance rate?","Where to view my absent list?","How many classes have I missed?","Did my lecturer mark my attendance?","Am I bar from exam due to low attendance?",
-                  "How to check if my attendance is 80 percent?","Where to find my attendance history?","How to check attendance breakdown by subject?","Forgot to scan attendance QR code, what to do?","My attendance app is not scanning the QR code",
-                  "Attendance system error during class","How to submit medical certificate for absent class?","How to appeal for missed attendance?","Lecturer forgot to open attendance portal","Marked absent by mistake, who to contact?","How to submit MC for absence in portal?"],
-      "responses": [
-        "To mark your attendance, log in to the TAR UMT App. Please make sure you've connected campus wi-fi. Click Attendance in Student page and key-in the 6-digit code displayed by your lecturer/tutor. Click Overall to view your present percentage of each subject.\n\n*Note: Maintain at least 80% attendance to be eligible for final examinations. If your attendance was missed or recorded incorrectly, please contact your course lecturer directly.*"
-      ]
+      "patterns": ["How to take attendance?","How to record my attendance for class?","Where to take for attendance?",
+                  "How to see my attendance?","Where to check my class attendance record?","How to view my attendance percentage?","How to check if my attendance was marked?","How much is my total attendance?",
+                  "What to do if I forgot to mark attendance?","Attendance status check","How to check attendance requirements for exams?","My attendance is missing for a lecture","Where to take attendance in the app?",
+                  "How to check in for tutorial class?","How do I register my attendance online?","What is the attendance code for my class?","Can I mark attendance manually?","How to sign attendance for lab session?","Attendance for online class",
+                  "How to check my overall attendance rate?","Where to view my absent list?","How many classes have I missed?","Did my lecturer mark my attendance?","Am I bar from exam due to low attendance?",
+                  "How to check if my attendance is 80 percent?","Where to find my attendance history?","How to check attendance breakdown by subject?","Forgot to sign-in attendance, what to do?",
+                  "Attendance system error during class","How to appeal for missed attendance?","Lecturer forgot to open attendance portal","Marked absent by mistake, who to contact?"],
+      "responses": ["To mark your attendance, log in to the TAR UMT App. Please make sure you've connected campus Wi-Fi. Click \"Attendance\" in Student page and key-in the 6-digit code displayed by your lecturer/tutor. Click \"Overall\" to view your present percentage of each subject.\n\n*Note: Maintain at least 80% attendance to be eligible for final examinations. If your attendance was missed or recorded incorrectly, please contact your course lecturer directly.*"]
     }
   ]
 }
