@@ -64,7 +64,7 @@
     },
     {
       "tag": "master",
-      "patterns": ["I want to know about master","Does TAR UMT offer Master's degrees?", "Can I study a PhD at TAR UMT?", "Tell me about postgraduate courses", "What Master's programmes are available?", "Doctorate degrees offered by TAR UMT", "Postgraduate entry requirements", "Master's degree options", "postgrad", "postgraduate", "masters degree",
+      "patterns": ["I want to know about master", "Can I study a PhD at TAR UMT?", "Tell me about postgraduate courses", "What Master's programmes are available?", "Doctorate degrees offered by TAR UMT", "Postgraduate entry requirements", "Master's degree options", "postgrad", "postgraduate", "masters degree",
                   "phd", "doctorate", "master studies", "postgrad courses", "postgrad study", "master programme list", "phd programme list", "what masters can i study", "does tarumt have phd", "does tarumt have masters", "is there any postgraduate course", "postgraduate studies in tarumt", "what phd courses are available",
                   "masters by coursework", "masters by research", "phd by research", "doctor of philosophy", "can i do research degree in tarumt", "higher education after degree", "further study after bachelor", "postgraduate prospectus", "master degree specialisations", "is phd offered here",
                   "postgraduate application process", "master degree fields of study", "doctor of business administration", "dba programme", "mba course tarumt", "master of computer science", "master of science tarumt", "master of business administration", "postgraduate options for graduates",
