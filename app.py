@@ -283,8 +283,10 @@ def answer(question, model_name, intents):
         text = random.choice(responses)
     else:
         text = "I found information for this topic, but a direct chatbot response has not been added yet."
-    if intent.get("source_url"):
-        text += f"\n\nMore information: {intent['source_url']}"
+    source_urls = intent.get("source_urls", [])
+    if source_urls:
+        links = "\n".join(f"- {url}" for url in source_urls)
+        text += f"\n\nMore information:\n{links}"
     return text, confidence, tag
 
 
