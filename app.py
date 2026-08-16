@@ -4,6 +4,7 @@ Run with: streamlit run app.py
 """
 import json
 import random 
+import re
 import numpy as np
 import pandas as pd
 from pathlib import Path
@@ -25,6 +26,17 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.pipeline import FeatureUnion
 
 DATA_FILE = Path(__file__).with_name("intents.json")
+
+# These words do not identify an FAQ topic by themselves. They are ignored
+# when checking whether a question has a topic covered by the FAQ dataset.
+GENERIC_QUERY_WORDS = {
+    "a", "about", "an", "and", "are", "at", "can", "could", "do", "does",
+    "for", "give", "has", "have", "how", "i", "if", "in", "information",
+    "is", "it", "know", "like", "me", "my", "need", "of", "on", "or",
+    "please", "tar", "tarc", "tarumt", "tell", "that", "the", "their",
+    "them", "they", "this", "to", "umt", "us", "want", "we", "what",
+    "when", "where", "which", "who", "why", "with", "would", "you", "your",
+}
 FALLBACK = "I’m not confident I understand that question. Please try rephrasing it or ask about programmes, admissions, fees, the library, intakes, scholarships or campus location."
 
 
@@ -40,6 +52,22 @@ def make_examples(intents):
         texts.extend(intent["patterns"])
         labels.extend([intent["tag"]] * len(intent["patterns"]))
     return texts, labels
+
+
+def has_known_topic(question, intents):
+    """Return True only if every topic word is represented in the FAQ data."""
+    question_words = set(re.findall(r"[a-z0-9]+", question.lower()))
+    topic_words = question_words - GENERIC_QUERY_WORDS
+    if not topic_words:
+        return False
+
+    training_words = {
+        word
+        for intent in intents
+        for pattern in intent["patterns"]
+        for word in re.findall(r"[a-z0-9]+", pattern.lower())
+    }
+    return topic_words.issubset(training_words)
 
 
 def build_mlp(input_size, class_count, hidden_units, dropout_rates, learning_rate, l2_strength):
@@ -240,6 +268,9 @@ def compare_models():
 
 
 def answer(question, model_name, intents):
+    if not has_known_topic(question, intents):
+        return FALLBACK, 0.0, None
+
     model = train_models()[model_name]
     probabilities = model.predict_proba([question])[0]
     confidence = float(probabilities.max())
@@ -262,6 +293,13 @@ st.title("🎓 TAR UMT FAQ Chatbot")
 st.caption("Ask about programmes, admissions, fees, campus, library, intakes and scholarships.")
 
 intents = load_intents(DATA_FILE.stat().st_mtime_ns)
+model_names = list(train_models())
+
+# Keep a separate transcript for each classifier.  A model switch therefore
+# changes the visible conversation without discarding the other transcripts.
+if "messages_by_model" not in st.session_state:
+    st.session_state.messages_by_model = {}
+
 with st.sidebar:
     st.header("Model Comparison")
     st.write("Three required models are trained from the same FAQ patterns.")
@@ -291,8 +329,8 @@ with st.sidebar:
 
     selected_model = st.selectbox(
         "Chat Model",
-        list(train_models()),
-        index=list(train_models()).index(best_model)
+        model_names,
+        index=model_names.index(best_model)
     )
 
     st.caption(
@@ -300,18 +338,22 @@ with st.sidebar:
     )
 
     if st.button("Clear Chat"):
-        st.session_state.messages = []
+        st.session_state.messages_by_model[selected_model] = []
         st.rerun()
 
-if "messages" not in st.session_state:
-    st.session_state.messages = [{"role": "assistant", "content": "Hello! What would you like to know about TAR UMT?"}]
+if selected_model not in st.session_state.messages_by_model:
+    st.session_state.messages_by_model[selected_model] = [
+        {"role": "assistant", "content": "Hello! What would you like to know about TAR UMT?"}
+    ]
 
-for message in st.session_state.messages:
+messages = st.session_state.messages_by_model[selected_model]
+
+for message in messages:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
 
 if prompt := st.chat_input("Type your question here"):
-    st.session_state.messages.append({"role": "user", "content": prompt})
+    messages.append({"role": "user", "content": prompt})
     with st.chat_message("user"):
         st.markdown(prompt)
     reply, confidence, _ = answer(prompt, selected_model, intents)
@@ -319,4 +361,4 @@ if prompt := st.chat_input("Type your question here"):
         st.markdown(reply)
         with st.expander("Prediction details"):
             st.caption(f"Model: {selected_model} · confidence: {confidence:.0%}")
-    st.session_state.messages.append({"role": "assistant", "content": reply})
+    messages.append({"role": "assistant", "content": reply})
