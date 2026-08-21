@@ -13,7 +13,7 @@ nltk.download('punkt', quiet=True)
 nltk.download('wordnet', quiet=True)
 lemmatizer = WordNetLemmatizer()
 
-# 1. Load intents.json file
+# Load intents.json file
 try:
     with open("intents.json", "r") as file:
         data = json.load(file)
@@ -25,7 +25,7 @@ except FileNotFoundError:
 X = []  # Patterns (inputs)
 y = []  # Tags (labels)
 
-# 2. Preprocess Text
+# Preprocess Text
 # Breaks to single word, convert all to lowercase, reduce words to base form
 def preprocess(text):
     words = nltk.word_tokenize(text.lower())
@@ -36,7 +36,7 @@ for intent in data["intents"]:
         X.append(preprocess(pattern))
         y.append(intent["tag"])
 
-# 3. Build & Train the Random Forest Model
+# Build & Train the Random Forest Model
 # We couple the TF-IDF vectorizer with a Random Forest Classifier
 model = make_pipeline( # combine TF-IDF & random forest
     TfidfVectorizer(), # converts textual patterns -> numerical feature vectors
@@ -50,7 +50,7 @@ model = make_pipeline( # combine TF-IDF & random forest
 model.fit(X, y)
 print("--- Random Forest Model Training Complete (Runs instantly) ---")
 
-# 4. Chat Interface Function
+# Chat Interface Function
 def get_rf_response(user_input):
     # clean user input
     cleaned_input = preprocess(user_input)
@@ -86,7 +86,7 @@ def get_rf_response(user_input):
             return final_response
     return "I am unsure how to answer that."
 
-# 5. Live Chat Loop
+# Live Chat Loop
 print("Random Forest Bot is ready! Type 'quit' to exit.\n")
 while True:
     message = input("You: ")
