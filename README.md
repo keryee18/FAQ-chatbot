@@ -1,8 +1,10 @@
 # Project Title: Chatbot Development (TAR UMT FAQ Chatbot)
-## Members: Chong Ker Yee, Lai Ming Tong, Low Qian Tong
+### Members: Chong Ker Yee, Lai Ming Tong, Low Qian Tong
+
 ## Brief Purpose:
 * The **TAR UMT FAQ Chatbot** is an AI-driven conversational web application designed to automatically answer student          inquiries regarding programmes, admissions, tuition fees, library services, intakes, scholarships, and campus locations.
 * By leveraging Natural Language Processing (NLP) and Machine Learning (ML), the system evaluates and compares three           classification approaches—**Logistic Regression**, **Random Forest**, and a **Deep Residual MLP (ResNet-34)**—to classify    user questions accurately, enforce confidence-based fallback rules, and provide instant administrative support.
+
 ## Main Prototype Functions:
 ### 1. Primary Entry Point (app.py)
 The main entry point of the project that runs the Streamlit Web Application (streamlit run app.py).
@@ -31,11 +33,13 @@ These scripts allow standalone training, evaluation, and CLI-based chat testing 
 * **Microsoft Windows**: Windows 10 / Windows 11 (64-bit) — Tested
 * **macOS**: macOS 12 (Monterey) or later (Intel & Apple Silicon M-series) — Supported
 * **Linux**: Ubuntu 20.04 LTS / 22.04 LTS or equivalent distributions — Supported
+
 ## Execution Environment: 
 * **Python Runtime**: Python `3.10.x` or higher (64-bit)
 * **Virtual Environment**: Python `venv` or Anaconda (`conda`) environment recommended
 * **Interactive CLI / Web Terminal**: Any standard terminal emulator (Windows PowerShell, Command Prompt, macOS Terminal, or VS Code Integrated Terminal)
 * **Web Browser Interface**: Google Chrome, Mozilla Firefox, Microsoft Edge, or Safari (for accessing the Streamlit Web Application)
+
 ## Installation & Running commands: 
 ### 1. Clone the Repository
 Clone the project repository from GitHub:
@@ -52,6 +56,7 @@ pip install -r requirements.txt
 
 ### 4. Choose the chatbot model
 Click the drop-down menu and choose a model. MLP (ResNet-34) is the best model.
+![Choose model](images/choosemodel.png)
 
 ## Datasets and Trained-model setup: 
 ### 1. Dataset (```intents.json```)
