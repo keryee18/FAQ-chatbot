@@ -1,5 +1,4 @@
 # Project Title: Chatbot Development (TAR UMT FAQ Chatbot)
-## Group Number: 
 ## Members: Chong Ker Yee, Lai Ming Tong, Low Qian Tong
 ## Brief Purpose:
 * The **TAR UMT FAQ Chatbot** is an AI-driven conversational web application designed to automatically answer student          inquiries regarding programmes, admissions, tuition fees, library services, intakes, scholarships, and campus locations.
