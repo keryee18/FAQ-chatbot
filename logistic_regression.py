@@ -1,7 +1,7 @@
 """
 Filename: logistic_regression.py
 Project: Chatbot Development
-Author:
+Author: Low Qian Tong
 Description:   
     1. Loads 'intents.json' and preprocesses input text via NLTK (Tokenization & Lemmatization).
     2. Builds a Scikit-Learn Pipeline combining TF-IDF Vectorizer and Logistic Regression Classifier.
