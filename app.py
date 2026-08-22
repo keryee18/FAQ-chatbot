@@ -8,6 +8,7 @@ Description:
     2. Performs 5-fold stratified cross-validation comparison to display real-time evaluation metrics (Accuracy, Precision, Recall, F1) in the sidebar.
     3. Implements an interactive chat interface supporting topic filtering, confidence thresholding, fallback handling, and separate session transcripts per model.
 """
+
 import json
 import random 
 import re
@@ -33,8 +34,8 @@ from sklearn.pipeline import FeatureUnion
 
 DATA_FILE = Path(__file__).with_name("intents.json")
 
-# These words do not identify an FAQ topic by themselves. They are ignored
-# when checking whether a question has a topic covered by the FAQ dataset.
+""" These words do not identify an FAQ topic by themselves. They are ignored
+ when checking whether a question has a topic covered by the FAQ dataset."""
 GENERIC_QUERY_WORDS = {
     "a", "about", "an", "and", "are", "at", "can", "could", "do", "does",
     "for", "give", "has", "have", "how", "i", "if", "in", "information",
@@ -45,7 +46,7 @@ GENERIC_QUERY_WORDS = {
 }
 FALLBACK = "I’m not confident I understand that question. Please try rephrasing it or ask about programmes, admissions, fees, the library, intakes, scholarships or campus location."
 
-
+#Cache intent data to avoid re-reading the JSON file on every Streamlit rerun
 @st.cache_data
 def load_intents(data_modified_ns):
     with DATA_FILE.open(encoding="utf-8") as file:
@@ -53,6 +54,7 @@ def load_intents(data_modified_ns):
 
 
 def make_examples(intents):
+    #Extract flat lists of text patterns and their corresponding intent tags
     texts, labels = [], []
     for intent in intents:
         texts.extend(intent["patterns"])
@@ -61,24 +63,28 @@ def make_examples(intents):
 
 
 def has_known_topic(question, intents):
-    """Return True only if every topic word is represented in the FAQ data."""
+    #Return True only if every topic word is represented in the FAQ data.
     question_words = set(re.findall(r"[a-z0-9]+", question.lower()))
     topic_words = question_words - GENERIC_QUERY_WORDS
     if not topic_words:
         return False
 
+    #Collect every word present across all training patterns
     training_words = {
         word
         for intent in intents
         for pattern in intent["patterns"]
         for word in re.findall(r"[a-z0-9]+", pattern.lower())
     }
+    #Require all key query words to be recognized in training vocabulary 
     return topic_words.issubset(training_words)
 
 
 def build_mlp(input_size, class_count, hidden_units, dropout_rates, learning_rate, l2_strength):
-    """Build a compact neural classifier for sparse TF-IDF text features."""
+    #Build a compact neural classifier for sparse TF-IDF text features.
     inputs = tf.keras.Input(shape=(input_size,), name="tfidf_features")
+
+    #First hidden layer with L2 kernel regularization to prevent overfitting on soarse features
     x = tf.keras.layers.Dense(
         hidden_units[0],
         activation="relu",
@@ -86,6 +92,8 @@ def build_mlp(input_size, class_count, hidden_units, dropout_rates, learning_rat
         name="hidden_layer_1",
     )(inputs)
     x = tf.keras.layers.Dropout(dropout_rates[0], name="dropout_1")(x)
+
+    #Second hidden layer
     x = tf.keras.layers.Dense(
         hidden_units[1],
         activation="relu",
@@ -93,6 +101,8 @@ def build_mlp(input_size, class_count, hidden_units, dropout_rates, learning_rat
         name="hidden_layer_2",
     )(x)
     x = tf.keras.layers.Dropout(dropout_rates[1], name="dropout_2")(x)
+
+    #Multi-class output layer with Softmax probabaility distribution
     outputs = tf.keras.layers.Dense(
         class_count, activation="softmax", name="intent_output"
     )(x)
@@ -106,7 +116,7 @@ def build_mlp(input_size, class_count, hidden_units, dropout_rates, learning_rat
 
 
 class MLPTextClassifier:
-    """A scikit-learn-compatible interface around a compact TensorFlow MLP."""
+    #A scikit-learn-compatible interface around a compact TensorFlow MLP.
 
     def __init__(
         self,
@@ -119,6 +129,7 @@ class MLPTextClassifier:
         early_stopping_patience=20,
         reduce_lr_patience=7,
     ):
+        #Neural network training hyperparameters
         self.hidden_units = hidden_units
         self.dropout_rates = dropout_rates
         self.learning_rate = learning_rate
@@ -127,6 +138,8 @@ class MLPTextClassifier:
         self.batch_size = batch_size
         self.early_stopping_patience = early_stopping_patience
         self.reduce_lr_patience = reduce_lr_patience
+
+        #Combine word n-grams (1-2) and character n-grams (3-5) into a single feature vector
         self.vectorizer = FeatureUnion([
             ("word", TfidfVectorizer(
                 ngram_range=(1, 2),
@@ -145,13 +158,17 @@ class MLPTextClassifier:
         self.label_encoder = LabelEncoder()
 
     def fit(self, texts, labels):
+        #Fit features vectorizers, preprocess data, and train the neural network model.
         tf.keras.backend.clear_session()
-        tf.keras.utils.set_random_seed(42)
+        tf.keras.utils.set_random_seed(42) #Ensure reproducibility
 
+        #Vectorize input texts and transform text labels to One-Hot encoded vectors
         features = self.vectorizer.fit_transform(texts).toarray().astype(np.float32)
         encoded_labels = self.label_encoder.fit_transform(labels)
         self.classes_ = self.label_encoder.classes_
         target = tf.keras.utils.to_categorical(encoded_labels, len(self.classes_))
+
+        #Split features into training and validation sets while preserving class distribution
         x_train, x_validation, y_train, y_validation, label_train, _ = train_test_split(
             features,
             target,
@@ -161,12 +178,14 @@ class MLPTextClassifier:
             stratify=encoded_labels,
         )
 
+        #Compute balanced class weights to compensate for imbalanced FAQ intent counts.
         label_counts = np.bincount(label_train, minlength=len(self.classes_))
         class_weight = {
             label: len(label_train) / (len(self.classes_) * count)
             for label, count in enumerate(label_counts)
         }
 
+        #Build and train the MLP network using dynamic callbacks
         self.model = build_mlp(
             features.shape[1],
             len(self.classes_),
@@ -184,11 +203,13 @@ class MLPTextClassifier:
             verbose=0,
             class_weight=class_weight,
             callbacks=[
+                #Stop training early if validation loss fails to improve
                 tf.keras.callbacks.EarlyStopping(
                     monitor="val_loss",
                     patience=self.early_stopping_patience,
                     restore_best_weights=True,
                 ),
+                #Reduce learning rate when learning hits a plateau
                 tf.keras.callbacks.ReduceLROnPlateau(
                     monitor="val_loss",
                     factor=0.5,
@@ -200,26 +221,31 @@ class MLPTextClassifier:
         return self
 
     def predict_proba(self, texts):
+        #Transform input texts into features vectors and output prediction probability matrices.
         features = self.vectorizer.transform(texts).toarray().astype(np.float32)
         return self.model.predict(features, verbose=0)
 
     def predict(self, texts):
+        #Return the highest-confidence predicted intent string for given input texts.
         probabilities = self.predict_proba(texts)
         return self.classes_[np.argmax(probabilities, axis=1)]
 
 
 def build_models(texts, labels):
-    """Train all three required classifiers on the complete FAQ dataset."""
+    #Train all three required classifiers on the complete FAQ dataset.
     return {
+        #Linear classifier paired with worl-level TF-IDF vectorization
         "Logistic Regression": Pipeline([
             ("tfidf", TfidfVectorizer(ngram_range=(1, 2), stop_words="english")),
             ("model", LogisticRegression(max_iter=1000, class_weight="balanced", random_state=42)),
         ]),
+        #Tree ensemble classifier paired with word-level TF-IDF vectorization
         "Random Forest": Pipeline([
             ("tfidf", TfidfVectorizer(ngram_range=(1, 2), stop_words="english")),
             ("model", RandomForestClassifier(n_estimators=300, class_weight="balanced", random_state=42)),
         ]),
-        "MLP (ResNet-34)": MLPTextClassifier(),
+        #Custom Scikit-Learn wrapper around Keras Neural Network
+        "Neural Network (MLP)": MLPTextClassifier(),
     }
 
 
@@ -235,7 +261,7 @@ def train_models():
 
 @st.cache_data
 def compare_models():
-    """Compare models with the mean score from five stratified validation folds."""
+    #Compare models with the mean score from five stratified validation folds.
 
     intents = load_intents(DATA_FILE.stat().st_mtime_ns)
     texts, labels = make_examples(intents)
@@ -295,33 +321,37 @@ def answer(question, model_name, intents):
         text += f"\n\nMore information:\n{links}"
     return text, confidence, tag
 
-
+#Streamlit UI configuration and page titles
 st.set_page_config(page_title="TAR UMT FAQ Chatbot", page_icon="🎓", layout="centered")
 st.title("🎓 TAR UMT FAQ Chatbot")
 st.caption("Ask about programmes, admissions, fees, campus, library, intakes and scholarships.")
 
+#Load dataset and extract model list
 intents = load_intents(DATA_FILE.stat().st_mtime_ns)
 model_names = list(train_models())
 
-# Keep a separate transcript for each classifier.  A model switch therefore
-# changes the visible conversation without discarding the other transcripts.
+#Maintain independent chat histories for each active classifier model
 if "messages_by_model" not in st.session_state:
     st.session_state.messages_by_model = {}
 
+#Sidebar section for cross-validation evaluation and model selection
 with st.sidebar:
     st.header("Model Comparison")
     st.write("Three required models are trained from the same FAQ patterns.")
 
     try:
+        #Run 5-fold Stratified K-Fold cross-validaiton to get accuracy, precision, recall, and F1 scored 
         scores = compare_models()
 
         df = pd.DataFrame(scores).T
 
+        #Display the structured performance matrix formatted as percentages
         st.dataframe(
             df.style.format("{:.2%}"),
             width="stretch"
         )
 
+        #Automatically selec top performing classifier based on weighted F1 score
         best_model = max(
             scores,
             key=lambda x: scores[x]["F1 Score"]
@@ -332,9 +362,11 @@ with st.sidebar:
         )
 
     except ValueError:
+        #Fallback if class imbalance prevents full k_fold split
         best_model = "Logistic Regression"
         st.info("Not enough examples per class to produce a stratified test split.")
 
+    #Dropdown to switch active chat model
     selected_model = st.selectbox(
         "Chat Model",
         model_names,
@@ -345,6 +377,7 @@ with st.sidebar:
         "Evaluation is the mean of five stratified validation folds."
     )
 
+    #Clear transcript history for the currently selected model
     if st.button("Clear Chat"):
         st.session_state.messages_by_model[selected_model] = []
         st.rerun()
