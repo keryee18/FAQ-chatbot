@@ -8,18 +8,17 @@
 ## Main Prototype Functions:
 ### 1. Primary Entry Point (app.py)
 The main entry point of the project that runs the Streamlit Web Application (streamlit run app.py).
-**Model Comparison Engine**: Executes 5-fold cross-validation on startup to display real-time Accuracy, Precision, Recall, and F1-score comparisons across all models in the sidebar.
-**Input Validation & Safety Rules**: Filters out non-topical generic query words and enforces a 35% confidence score threshold to trigger fallback responses when questions are unclear.
-**Interactive Chat Interface**: Maintains model-specific session transcripts and dynamically appends official TAR UMT source URLs to answers.
+* **Model Comparison Engine**: Executes 5-fold cross-validation on startup to display real-time Accuracy, Precision, Recall, and F1-score comparisons across all models in the sidebar.
+* **Input Validation & Safety Rules**: Filters out non-topical generic query words and enforces a 35% confidence score threshold to trigger fallback responses when questions are unclear.
+* **Interactive Chat Interface**: Maintains model-specific session transcripts and dynamically appends official TAR UMT source URLs to answers.
 
 ### 2. Standalone CLI & Model Modules
 These scripts allow standalone training, evaluation, and CLI-based chat testing for individual algorithms:
-**logisticregression.py**: Implements a TF-IDF + Logistic Regression pipeline with balanced class weights and a interactive command-line interface.
-**random_forest.py**: Implements a TF-IDF + Random Forest Classifier (300 estimators) pipeline with interactive command-line chat.
-**deep_learning.py**: Builds, trains, and evaluates a 34-layer Deep Residual Neural Network (MLP) using Keras with Bag-of-Words feature extraction.
+* **logisticregression.py**: Implements a TF-IDF + Logistic Regression pipeline with balanced class weights and a interactive command-line interface.
+* **random_forest.py**: Implements a TF-IDF + Random Forest Classifier (300 estimators) pipeline with interactive command-line chat.
+* **deep_learning.py**: Builds, trains, and evaluates a 34-layer Deep Residual Neural Network (MLP) using Keras with Bag-of-Words feature extraction.
 ## Programming Language:
-**Language**: Python 3.10+
-**Environment**: Anaconda / venv
+* **Language**: Python 3.10+
 
 ### Core Frameworks & Tool Versions
 | Category | Tool / Library | Recommended Version |
