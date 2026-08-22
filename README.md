@@ -67,5 +67,10 @@ pip install -r requirements.txt
 **Re-training / Modification**: If you modify or add patterns to ```intents.json```, simply refresh the Streamlit web application to automatically retrain the models with the updated dataset.
 ## Test-input instructions and expected outputs: 
 You can refer to ```intents.json```.
-## Limitations and common troubleshooting steps: 
-## Clear mapping of each member to their solution and files: 
+### Operating system tested.
+### Python, Java, Node.js or other runtime version.
+### Required software, such as VS Code, Anaconda, Jupyter or Google Colab.
+### Library/package names and versions.
+### Internet, database, API or external-service requirements.
+### CPU, RAM or GPU requirements, if relevant.
+### Approximate installation, model-loading, training and prediction time.
