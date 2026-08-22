@@ -1,7 +1,7 @@
 """
 Filename: mlp_resnet-34.py
 Project: Chatbot Development 
-Author:
+Author: Chong Ker Yee
 Description:  
     1. Loads 'intents.json' and preprocesses text via NLTK (Tokenization, Lemmatization, and Bag-of-Words vectorization).
     2. Constructs a 34-layer Deep Neural Network with Residual Blocks using TensorFlow/Keras for multi-class intent classification.
