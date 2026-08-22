@@ -9,6 +9,7 @@ Description:
     4. Provides an interactive command-line interface (CLI) chat loop for user testing.
 """
 
+#Logistic Regression Model
 import json
 import random
 import nltk
@@ -18,12 +19,12 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.pipeline import make_pipeline
 
-# Download required text tools
+#Download required text tools
 nltk.download('punkt', quiet=True)
 nltk.download('wordnet', quiet=True)
 lemmatizer = WordNetLemmatizer()
 
-# 1. Load intents.json file
+#Load intents.json file
 try:
     with open("intents.json", "r") as file:
         data = json.load(file)
@@ -32,11 +33,11 @@ except FileNotFoundError:
     print("ERROR: 'intents.json' not found. Please upload your file.")
     raise
 
-X = []  # Patterns
-y = []  # Tags
+X = []  #Patterns
+y = []  #Tags
 
-# 2. Preprocess Text
-# Breaks to single word, convert all to lowercase, reduce words to base form
+#Preprocess Text
+#Breaks to single word, convert all to lowercase, reduce words to base form
 def preprocess(text):
     words = nltk.word_tokenize(text.lower())
     return " ".join([lemmatizer.lemmatize(w) for w in words])
@@ -46,10 +47,10 @@ for intent in data["intents"]:
         X.append(preprocess(pattern))
         y.append(intent["tag"])
 
-# 3. Build & Train the Logistic Regression Model
-# convert: preprocessed patterns (x) -> numerical feature vectors
-# TF-IDF (Term Frequency-Inverse Document Frequency) - statistical measure that evaluates how relevant a word is to a document in a collection of documents
-# Logistic regression - linear model used for binary or multi-class classification
+"""Build & Train the Logistic Regression Model
+convert: preprocessed patterns -> numerical feature vectors
+TF-IDF (Term Frequency-Inverse Document Frequency) - statistical measure that evaluates how relevant a word is to a document in a collection of documents
+Logistic regression - linear model used for binary or multi-class classification"""
 model = make_pipeline( # make_pipeline -> chain TF-IDF & logistic regression
     TfidfVectorizer(),
     LogisticRegression(random_state=42)
@@ -57,7 +58,7 @@ model = make_pipeline( # make_pipeline -> chain TF-IDF & logistic regression
 model.fit(X, y)
 print("--- Logistic Regression Model Training Complete (Runs instantly) ---")
 
-# 4. Chat Interface Function
+#Chat Interface Function
 def get_lr_response(user_input):
     cleaned_input = preprocess(user_input) # clean user input
     probabilities = model.predict_proba([cleaned_input])[0] # predict probability of user input belonging to each intent
@@ -71,16 +72,16 @@ def get_lr_response(user_input):
 
     for intent in data["intents"]:
         if intent["tag"] == predicted_tag:
-            # Always choose a response first
+            #Always choose a response first
             selected_response_text = random.choice(intent["responses"]) if intent["responses"] else ""
 
             response_parts = [selected_response_text]
 
-            # If a source URL exists, add it to the parts
+            #If a source URL exists, add it to the parts
             if "source_url" in intent and intent["source_url"]:
                 response_parts.append(f"For more information, visit: {intent['source_url']}")
 
-            # Join the parts, only including non-empty ones
+            #Join the parts, only including non-empty ones
             final_response = "\n".join(filter(None, response_parts))
             if not final_response: # If even after combining, it's empty, provide a fallback
                  return "I am unsure how to answer that."
@@ -88,7 +89,7 @@ def get_lr_response(user_input):
             return final_response
     return "I am unsure how to answer that."
 
-# 5. Live Chat Loop
+#Live Chat Loop
 print("Logistic Regression Bot is ready! Type 'quit' to exit.\n")
 while True:
     message = input("You: ")
