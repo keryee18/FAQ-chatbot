@@ -1,6 +1,12 @@
-"""Streamlit UI for the TAR UMT FAQ chatbot.
-
-Run with: streamlit run app.py
+"""
+Filename: app.py
+Project: Chatbot development
+Author: Chong Ker Yee, Lai Ming Tong, Low Qian Tong 
+Description:   
+    Main Web Application entry point built with Streamlit.
+    1. Loads 'intents.json' and dynamically trains three classifiers (Logistic Regression, Random Forest, and TensorFlow MLP).
+    2. Performs 5-fold stratified cross-validation comparison to display real-time evaluation metrics (Accuracy, Precision, Recall, F1) in the sidebar.
+    3. Implements an interactive chat interface supporting topic filtering, confidence thresholding, fallback handling, and separate session transcripts per model.
 """
 import json
 import random 
