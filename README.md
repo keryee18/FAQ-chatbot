@@ -16,12 +16,25 @@ These scripts allow standalone training, evaluation, and CLI-based chat testing 
 **logisticregression.py**: Implements a TF-IDF + Logistic Regression pipeline with balanced class weights and a interactive command-line interface.
 **random_forest.py**: Implements a TF-IDF + Random Forest Classifier (300 estimators) pipeline with interactive command-line chat.
 **deep_learning.py**: Builds, trains, and evaluates a 34-layer Deep Residual Neural Network (MLP) using Keras with Bag-of-Words feature extraction.
-Programming Language:
-Framework:
-Important Tool Versions:
-Support Operating System:
-Execution Environment:
-Installation commands:
+## Programming Language:
+**Language**: Python 3.10+
+**Environment**: Anaconda / venv
+
+### Core Frameworks & Tool Versions
+| Category | Tool / Library | Recommended Version |
+| :--- | :--- | :--- |
+| **Web UI** | Streamlit | ^1.28.0 |
+| **Deep Learning** | TensorFlow / Keras | ^2.15.0 |
+| **Machine Learning** | scikit-learn | ^1.3.0 |
+| **NLP** | NLTK | ^3.8.1 |
+| **Data Processing** | NumPy / Pandas | ^1.24.3 / ^2.1.0 |
+## Support Operating System:
+## Execution Environment:
+## Installation commands:
+## DataSet:
+## Trained-model setup: 
+## Exact command or sequence for running the prototype:
+## 
 
 <!-- run in terminal:
 pip install -r requirements.txt
