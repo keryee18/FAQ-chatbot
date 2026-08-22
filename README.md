@@ -28,13 +28,22 @@ These scripts allow standalone training, evaluation, and CLI-based chat testing 
 | **Machine Learning** | scikit-learn | ^1.3.0 |
 | **NLP** | NLTK | ^3.8.1 |
 | **Data Processing** | NumPy / Pandas | ^1.24.3 / ^2.1.0 |
-## Support Operating System:
-## Execution Environment:
+## Support Operating System: 
+* **Microsoft Windows**: Windows 10 / Windows 11 (64-bit) — Tested
+* **macOS**: macOS 12 (Monterey) or later (Intel & Apple Silicon M-series) — Supported
+* **Linux**: Ubuntu 20.04 LTS / 22.04 LTS or equivalent distributions — Supported
+## Execution Environment: 
+* **Python Runtime**: Python `3.10.x` or higher (64-bit)
+* **Virtual Environment**: Python `venv` or Anaconda (`conda`) environment recommended
+* **Interactive CLI / Web Terminal**: Any standard terminal emulator (Windows PowerShell, Command Prompt, macOS Terminal, or VS Code Integrated Terminal)
+* **Web Browser Interface**: Google Chrome, Mozilla Firefox, Microsoft Edge, or Safari (for accessing the Streamlit Web Application)
 ## Installation commands:
 ## DataSet:
 ## Trained-model setup: 
 ## Exact command or sequence for running the prototype:
-## 
+## Test-input instructions and expected outputs:
+## Limitations and common trobleshooting steps:
+
 
 <!-- run in terminal:
 pip install -r requirements.txt
