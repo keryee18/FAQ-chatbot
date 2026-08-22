@@ -56,7 +56,13 @@ pip install -r requirements.txt
 
 ### 4. Choose the chatbot model
 Click the drop-down menu and choose a model. MLP (ResNet-34) is the best model.
-![Choose model](images/choosemodel.png)
+![Choose model](images/choose_model.png)
+
+### 5. User Input
+* Type your question in the input box.
+* The chatbot will reply you with the prediction level.
+* The orange profile icon is chatbot, while red icon is you.
+![Chatbot interface](images/chatbot.png)
 
 ## Datasets and Trained-model setup: 
 ### 1. Dataset (```intents.json```)
