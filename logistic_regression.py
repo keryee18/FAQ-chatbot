@@ -9,7 +9,6 @@ Description:
     4. Provides an interactive command-line interface (CLI) chat loop for user testing.
 """
 
-#Logistic Regression Model
 import json
 import random
 import nltk
