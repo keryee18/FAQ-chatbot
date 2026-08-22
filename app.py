@@ -219,7 +219,7 @@ def build_models(texts, labels):
             ("tfidf", TfidfVectorizer(ngram_range=(1, 2), stop_words="english")),
             ("model", RandomForestClassifier(n_estimators=300, class_weight="balanced", random_state=42)),
         ]),
-        "Neural Network (MLP)": MLPTextClassifier(),
+        "MLP (ResNet-34)": MLPTextClassifier(),
     }
 
 
