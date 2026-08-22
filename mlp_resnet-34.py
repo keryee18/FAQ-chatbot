@@ -1,4 +1,13 @@
-#Deep Learning Neutral Network Model
+"""
+Filename: mlp_resnet-34.py
+Project: Chatbot Development 
+Author:
+Description:  
+    1. Loads 'intents.json' and preprocesses text via NLTK (Tokenization, Lemmatization, and Bag-of-Words vectorization).
+    2. Constructs a 34-layer Deep Neural Network with Residual Blocks using TensorFlow/Keras for multi-class intent classification.
+    3. Trains the neural network and performs intent prediction with confidence thresholds and source URL handling.
+    4. Provides an interactive command-line interface (CLI) chat loop for live testing.
+"""
 import json
 import numpy as np
 import random
