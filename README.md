@@ -37,12 +37,26 @@ These scripts allow standalone training, evaluation, and CLI-based chat testing 
 * **Virtual Environment**: Python `venv` or Anaconda (`conda`) environment recommended
 * **Interactive CLI / Web Terminal**: Any standard terminal emulator (Windows PowerShell, Command Prompt, macOS Terminal, or VS Code Integrated Terminal)
 * **Web Browser Interface**: Google Chrome, Mozilla Firefox, Microsoft Edge, or Safari (for accessing the Streamlit Web Application)
-## Installation commands:
-## DataSet:
+## Installation commands: 
+### 1. Clone the Repository
+Clone the project repository from GitHub:
+"""git clone https://github.com/keryee18/FAQ-chatbot.git"""
+
+### 2. Install Dependencies
+"""
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+"""
+
+### 3. Launch the Web Prototype
+"""streamlit run app.py"""     
+## Datasets: 
 ## Trained-model setup: 
-## Exact command or sequence for running the prototype:
-## Test-input instructions and expected outputs:
-## Limitations and common trobleshooting steps:
+## Exact command or sequence for running the prototype: 
+## Test-input instructions and expected outputs: 
+## Limitations and common troubleshooting steps: 
+## Clear mapping of each member to their solution and files: 
+
 
 
 <!-- run in terminal:
