@@ -40,16 +40,16 @@ These scripts allow standalone training, evaluation, and CLI-based chat testing 
 ## Installation commands: 
 ### 1. Clone the Repository
 Clone the project repository from GitHub:
-"""git clone https://github.com/keryee18/FAQ-chatbot.git"""
+```git clone https://github.com/keryee18/FAQ-chatbot.git```
 
 ### 2. Install Dependencies
-"""
+```
 python -m pip install --upgrade pip
 pip install -r requirements.txt
-"""
+```
 
 ### 3. Launch the Web Prototype
-"""streamlit run app.py"""     
+```streamlit run app.py```
 ## Datasets: 
 ## Trained-model setup: 
 ## Exact command or sequence for running the prototype: 
