@@ -1,7 +1,7 @@
 """
 Filename: random_forest.py
 Project: Chatbot Development
-Author: 
+Author: Lai MIng Tong
 Description:   
     1. Loads 'intents.json' dataset and preprocesses text using NLTK (Tokenization & Lemmatization).
     2. Constructs and fits a Scikit-Learn Pipeline combining TF-IDF Vectorization and Random Forest Classifier.
