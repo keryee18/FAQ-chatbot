@@ -1,4 +1,14 @@
-#Random Forest Model
+"""Random Forest Model
+Filename: random_forest.py
+Project: Chatbot Development
+Author: 
+Description:   
+    1. Loads 'intents.json' dataset and preprocesses text using NLTK (Tokenization & Lemmatization).
+    2. Constructs and fits a Scikit-Learn Pipeline combining TF-IDF Vectorization and Random Forest Classifier.
+    3. Implements intent prediction logic with a confidence score threshold (0.25) and dynamic source URL appended responses.
+    4. Provides an interactive command-line interface (CLI) chat loop for live testing.
+"""
+
 import json
 import random
 import nltk
