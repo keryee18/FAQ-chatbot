@@ -1,10 +1,10 @@
-#Project Title: Chatbot Development (TAR UMT FAQ Chatbot)
-Group Number: 
-Members: Chong Ker Yee, Lai Ming Tong, Low Qian Tong
-Brief Purpose:
+# Project Title: Chatbot Development (TAR UMT FAQ Chatbot)
+## Group Number: 
+## Members: Chong Ker Yee, Lai Ming Tong, Low Qian Tong
+## Brief Purpose:
 * The **TAR UMT FAQ Chatbot** is an AI-driven conversational web application designed to automatically answer student          inquiries regarding programmes, admissions, tuition fees, library services, intakes, scholarships, and campus locations.
 * By leveraging Natural Language Processing (NLP) and Machine Learning (ML), the system evaluates and compares three           classification approaches—**Logistic Regression**, **Random Forest**, and a **Deep Residual MLP (ResNet-34)**—to classify    user questions accurately, enforce confidence-based fallback rules, and provide instant administrative support.
-Main Prototype Functions:
+## Main Prototype Functions:
 ### 1. Primary Entry Point (app.py)
 The main entry point of the project that runs the Streamlit Web Application (streamlit run app.py).
 **Model Comparison Engine**: Executes 5-fold cross-validation on startup to display real-time Accuracy, Precision, Recall, and F1-score comparisons across all models in the sidebar.
