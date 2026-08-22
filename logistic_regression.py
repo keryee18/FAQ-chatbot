@@ -1,4 +1,14 @@
-#Logistic Regression Model
+"""
+Filename: logistic_regression.py
+Project: Chatbot Development
+Author:
+Description:   
+    1. Loads 'intents.json' and preprocesses input text via NLTK (Tokenization & Lemmatization).
+    2. Builds a Scikit-Learn Pipeline combining TF-IDF Vectorizer and Logistic Regression Classifier.
+    3. Calculates prediction probabilities with a confidence threshold (0.25) and appends source URLs.
+    4. Provides an interactive command-line interface (CLI) chat loop for user testing.
+"""
+
 import json
 import random
 import nltk
