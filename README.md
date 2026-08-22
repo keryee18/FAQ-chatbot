@@ -37,7 +37,7 @@ These scripts allow standalone training, evaluation, and CLI-based chat testing 
 * **Virtual Environment**: Python `venv` or Anaconda (`conda`) environment recommended
 * **Interactive CLI / Web Terminal**: Any standard terminal emulator (Windows PowerShell, Command Prompt, macOS Terminal, or VS Code Integrated Terminal)
 * **Web Browser Interface**: Google Chrome, Mozilla Firefox, Microsoft Edge, or Safari (for accessing the Streamlit Web Application)
-## Installation commands: 
+## Installation & Running commands: 
 ### 1. Clone the Repository
 Clone the project repository from GitHub:
 ```git clone https://github.com/keryee18/FAQ-chatbot.git```
@@ -65,16 +65,7 @@ pip install -r requirements.txt
 ### 2. Trained-Model Setup
 **Automated Initialization**: When you execute ```streamlit run app.py```, the application automatically loads ```intents.json```, preprocesses the text, and trains all three models (**Logistic Regression**, **Random Forest**, and **Deep Residual Multilayer Perceptron (ResNet-34 Style)**) in memory within seconds.
 **Re-training / Modification**: If you modify or add patterns to ```intents.json```, simply refresh the Streamlit web application to automatically retrain the models with the updated dataset.
-
-## Exact command or sequence for running the prototype: 
 ## Test-input instructions and expected outputs: 
+You can refer to ```intents.json```.
 ## Limitations and common troubleshooting steps: 
 ## Clear mapping of each member to their solution and files: 
-
-
-
-<!-- run in terminal:
-pip install -r requirements.txt
-streamlit run app.py
--->
-
