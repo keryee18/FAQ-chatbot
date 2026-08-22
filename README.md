@@ -50,8 +50,22 @@ pip install -r requirements.txt
 
 ### 3. Launch the Web Prototype
 ```streamlit run app.py```
-## Datasets: 
-## Trained-model setup: 
+## Datasets and Trained-model setup: 
+### 1. Dataset (intents.json)
+**Source & Origin**: The dataset was custom-built specifically for this project to handle common student inquiries at Tunku Abdul Rahman University of Management and Technology (TAR UMT).
+**Structure**: Formatted as a JSON object containing structured intent categories. Each category includes:
+  * tag: The intent label (e.g., admissions, tuition fees, library, campus locations).
+  * patterns: Sample user queries and variation phrases used to train the classifier.
+  * responses: Predefined answer templates.
+  * source_url: Official TAR UMT website URLs dynamically appended to answers.
+**Pre-processing Requirements**: No manual download or prior dataset preparation is required. Data loading, tokenization, lemmatization (via NLTK), and feature extraction occur automatically at application startup.
+
+---
+
+### 2. Trained-Model Setup
+**Automated Initialization**: When you execute streamlit run app.py, the application automatically loads [intents.json], preprocesses the text, and trains all three models (**Logistic Regression**, **Random Forest**, and **Deep Residual Multilayer Perceptron (ResNet-34 Style)**) in memory within seconds.
+**Re-training / Modification**: If you modify or add patterns to [intents.json], simply refresh the Streamlit web application to automatically retrain the models with the updated dataset.
+
 ## Exact command or sequence for running the prototype: 
 ## Test-input instructions and expected outputs: 
 ## Limitations and common troubleshooting steps: 
