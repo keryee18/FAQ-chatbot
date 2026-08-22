@@ -50,6 +50,10 @@ pip install -r requirements.txt
 
 ### 3. Launch the Web Prototype
 ```streamlit run app.py```
+
+### 4. Choose the chatbot model
+Click the drop-down menu and choose a model. MLP (ResNet-34) is the best model.
+
 ## Datasets and Trained-model setup: 
 ### 1. Dataset (```intents.json```)
 **Source & Origin**: The dataset was custom-built specifically for this project to handle common student inquiries at Tunku Abdul Rahman University of Management and Technology (TAR UMT).
@@ -60,17 +64,19 @@ pip install -r requirements.txt
   * ```source_url```: Official TAR UMT website URLs dynamically appended to answers.
 **Pre-processing Requirements**: No manual download or prior dataset preparation is required. Data loading, tokenization, lemmatization (via NLTK), and feature extraction occur automatically at application startup.
 
----
-
 ### 2. Trained-Model Setup
 **Automated Initialization**: When you execute ```streamlit run app.py```, the application automatically loads ```intents.json```, preprocesses the text, and trains all three models (**Logistic Regression**, **Random Forest**, and **Deep Residual Multilayer Perceptron (ResNet-34 Style)**) in memory within seconds.
 **Re-training / Modification**: If you modify or add patterns to ```intents.json```, simply refresh the Streamlit web application to automatically retrain the models with the updated dataset.
+
 ## Test-input instructions and expected outputs: 
 You can refer to ```intents.json```.
+
 ### Required software, such as VS Code, Anaconda, Jupyter or Google Colab:
 * VS Code using Python 3.10+
+
 ### Library/package names and versions:
 You can refer to ```requirements.txt```.
+
 ### CPU, RAM or GPU requirements, if relevant:
 ### Approximate installation, model-loading, training and prediction time:
 
