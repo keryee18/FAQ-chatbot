@@ -25,7 +25,7 @@ nltk.download("punkt_tab")
 
 lemmatizer = WordNetLemmatizer()
 
-# 1. Load the data
+# Load the data
 with open("intents.json") as file:
     data = json.load(file)
 
@@ -34,7 +34,7 @@ classes = []
 documents = []
 ignore_letters = ["?", "!", ".", ","]
 
-# 2. Preprocess the Data (Tokenization and mapping tags)
+# Preprocess the Data (Tokenization and mapping tags)
 for intent in data["intents"]:
     for pattern in intent["patterns"]:
         # Tokenize patterns (breaks sentences into words)
@@ -52,7 +52,7 @@ words = sorted(list(set(words)))
 
 classes = sorted(list(set(classes)))
 
-# 3. Vectorization (Creating Bag-of-Words vectors for training)
+# Vectorization (Creating Bag-of-Words vectors for training)
 # bag-of-words -> representation for each pattern (convert: text -> numerical vectors)
 training = []
 output_empty = [0] * len(classes)
@@ -69,7 +69,7 @@ for doc in documents:
     output_row[classes.index(doc[1])] = 1
     training.append([bag, output_row])
 
-# Shuffle and split into features (X) and labels (Y)
+# Shuffle and split into features and labels 
 # To ensure the model doesn't learn any unintended order/patterns present in the original dataset
 random.shuffle(training)
 training = np.array(training, dtype=object)
@@ -77,11 +77,10 @@ training = np.array(training, dtype=object)
 train_x = np.array(list(training[:, 0]))
 train_y = np.array(list(training[:, 1]))
 
-# 4. Build and Train a ResNet-style neural network
-#
-# This is a ResNet-34-style residual MLP, appropriate for Bag-of-Words feature
-# vectors. It has 16 residual blocks with two dense layers each, plus the input
-# projection and output classifier: 1 + (16 * 2) + 1 = 34 dense layers.
+"""Build and Train a ResNet-style neural network
+This is a ResNet-34-style residual MLP, appropriate for Bag-of-Words feature
+vectors. It has 16 residual blocks with two dense layers each, plus the input
+projection and output classifier: 1 + (16 * 2) + 1 = 34 dense layers."""
 def residual_block(inputs, units, dropout_rate, name):
     """Apply two dense layers and add their output back to the shortcut."""
     shortcut = inputs
@@ -119,7 +118,7 @@ print("\n--- Training Started ---")
 model.fit(train_x, train_y, epochs=200, batch_size=5, verbose=0)
 print("--- Training Finished ---\n")
 
-# 5. Functions to process user input during live chat
+# Functions to process user input during live chat
 def clean_up_sentence(sentence):
     sentence_words = nltk.word_tokenize(sentence)
     sentence_words = [lemmatizer.lemmatize(word.lower()) for word in sentence_words]
@@ -173,7 +172,7 @@ def get_response(intents_list, intents_json):
             return final_response
     return "I am unsure how to answer that."
 
-# 6. Live Interaction Chatbot loop (continues until user type "quit")
+# Live Interaction Chatbot loop (continues until user type "quit")
 print("Bot is ready! Type 'quit' to exit the chat.\n")
 while True:
     message = input("You: ")
